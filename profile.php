@@ -13,6 +13,7 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 /* If access tokens are not available redirect to connect page. */
 if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
     header('Location: ./clearsessions.php');
+    exit;
 }
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION['access_token'];

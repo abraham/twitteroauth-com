@@ -19,6 +19,7 @@ $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
 if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
   $_SESSION['oauth_status'] = 'oldtoken';
   header('Location: ./clearsessions.php');
+  exit;
 }
 
 /* Create TwitteroAuth object with app key/secret and token key/secret from default phase */
@@ -40,6 +41,7 @@ if (200 == $connection->http_code) {
 } else {
     /* Save HTTP status for error dialog on connnect page.*/
     header('Location: ./clearsessions.php');
+    exit;
 }
 
 echo $twig->render("callback.html", array("access_token" => $access_token));

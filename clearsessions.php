@@ -10,3 +10,4 @@ session_destroy();
  
 /* Redirect to page with the connect to Twitter option. */
 header('Location: ./');
+exit;
