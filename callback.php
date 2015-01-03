@@ -23,7 +23,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] !== $_REQUEST['o
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 
 /* Request access tokens from twitter */
-$access_token = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
 /* Save the access tokens. Normally these would be saved in a database for future use. */
 $_SESSION['access_token'] = $access_token;

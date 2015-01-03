@@ -13,7 +13,7 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 /* Get temporary credentials. */
-$request_token = $connection->getRequestToken(OAUTH_CALLBACK);
+$request_token = $connection->oauth('oauth/request_token');
 
 /* Save temporary credentials to session. */
 $_SESSION['oauth_token'] = $token = $request_token['oauth_token'];
@@ -23,7 +23,7 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 switch ($connection->http_code) {
   case 200:
     /* Build authorize URL and redirect user to Twitter. */
-    $url = $connection->getAuthorizeURL($token);
+    $url = $connection->url('oauth/authorize', array('oauth_token' => $token));
     header('Location: ' . $url); 
     break;
   default:
