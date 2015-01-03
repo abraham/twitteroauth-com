@@ -19,6 +19,6 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "abraham/twitteroauth": "0.3.*"
+        "abraham/twitteroauth": "dev-master"
     }
 }
