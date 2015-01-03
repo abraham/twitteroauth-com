@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "a621ebb91022bca6f7586c8ca23d161bc3a762eb"
+                "reference": "27255b3582f04049358724073e9ddbe7e0efd137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/a621ebb91022bca6f7586c8ca23d161bc3a762eb",
-                "reference": "a621ebb91022bca6f7586c8ca23d161bc3a762eb",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/27255b3582f04049358724073e9ddbe7e0efd137",
+                "reference": "27255b3582f04049358724073e9ddbe7e0efd137",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-03 06:40:29"
+            "time": "2015-01-03 07:28:41"
         }
     ],
     "packages-dev": [],
