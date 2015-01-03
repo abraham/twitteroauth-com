@@ -1,36 +1,20 @@
 <?php
+
 /**
  * @file
- * User has successfully authenticated with Twitter. Access tokens saved to session and DB.
+ * Check if consumer token is set and if so send user to get a request token.
  */
 
-/* Load required lib files. */
-session_start();
-require 'vendor/autoload.php';
-use Abraham\TwitterOAuth\TwitterOAuth;
-
-define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
-define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
-
-/* If access tokens are not available redirect to connect page. */
-if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
-    header('Location: ./clearsessions.php');
+/**
+ * Exit with an error message if the CONSUMER_KEY or CONSUMER_SECRET is not defined.
+ */
+if (!getenv('CONSUMER_KEY') || !getenv('CONSUMER_SECRET')) {
+  echo 'You need a consumer key and secret to test the sample code. Get one from <a href="https://apps.twitter.com">https://apps.twitter.com</a>.';
+  exit;
 }
-/* Get user access tokens out of the session. */
-$access_token = $_SESSION['access_token'];
 
-/* Create a TwitterOauth object with consumer/user tokens. */
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
-
-/* If method is set change API call made. Test is called by default. */
-$content = $connection->get('account/verify_credentials');
-
-/* Some example calls */
-//$connection->get('users/show', array('screen_name' => 'abraham'));
-//$connection->post('statuses/update', array('status' => date(DATE_RFC822)));
-//$connection->post('statuses/destroy', array('id' => 5437877770));
-//$connection->post('friendships/create', array('id' => 9436992));
-//$connection->post('friendships/destroy', array('id' => 9436992));
-
-/* Include HTML to display on the page */
+/* Build an image link to start the redirect process. */
+$content = '<a href="./redirect.php"><img src="./images/lighter.png" alt="Sign in with Twitter"/></a>';
+ 
+/* Include HTML to display on the page. */
 include('html.inc');
