@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Finish authorization</h1>
+<p>The user should now have returned from Twitter having authorized access to their account. A request_token is a short-lived one time use value so if it is invalid users will have to start the authorization flow over.</p>
+
+<h2>Bootstrapping</h2>
+<p>Set up as before but hold off on the TwitterOAuth instance.</p>
+
+<pre>
+require 'vendor/autoload.php';
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
+define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
+define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
+</pre>
+
+<h2>Sessions</h2>
+<p>Pull the temporary oauth_token back out of sessions. If the oauth_token is different from the one you sent them to Twitter with, abort the flow and don't continue with authorization.</p>
+
+<pre>
+$request_token = [];
+$request_token['oauth_token'] = $_SESSION['oauth_token'];
+$request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
+
+if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
+    // Abort! Something is wrong.
+}
+</pre>
+
+<h2>Finish bootstrapping</h2>
+<p>Now we make a TwitterOAuth instance with the temporary request token.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oauth_token'], $request_token['oauth_token_secret']);
+</pre>
+
+<h2>Get access_token</h2>
+<p>At this point we will use the temporary request token to get the long lived access_token that authorized to act as the user.</p>
+
+<b>Request</b>
+<pre>
+$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
+</pre>
+
+<b>Response <span class="label label-info">Live</span></b>
+<pre>
+{{ dump(access_token) }}
+</pre>
+
+<h2>Credentials storage</h2>
+<p>This is the important part where you save the credentials to your database of choice.</p>
+
+<pre>
+$_SESSION['access_token'] = $access_token;
+</pre>
+
+<p>You now know the users identity and can start interacting with their Twitter account.</p>
+<p><a class="btn btn-primary" href="/profile.php">Next step: get your profile data</a></p>
+
+{% endblock %}

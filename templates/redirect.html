@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Starting authorization</h1>
+<p>Generating a request_token should only happen when a user shows intent to sign into your site. It requires making an API request to Twitter. In your implementation this page should generally have no HTML rendered and instead do a redirect the the generated URL.</p>
+
+<h2>Bootstrapping</h2>
+<p>First we set need to autoload the TwitterOAuth class and the need Twitter application details. We will also construct a TwitterOAuth instance with the application consumer_key and consumer_secret.</p>
+
+<pre>
+require 'vendor/autoload.php';
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
+define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
+define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
+
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+</pre>
+
+<h2>Generating a request_token</h2>
+<p>Authorizing access to a users account through OAuth starts with getting a temporary request_token. This request_token is only good for a few minutes and will soon be forgotten about.</p>
+
+<b>Request</b>
+<pre>
+$request_token = $connection->oauth('oauth/request_token');
+</pre>
+
+<b>Response <span class="label label-info">Live</span></b>
+<pre>
+{{ dump(request_token) }}
+</pre>
+
+<h2>Sessions</h2>
+<p>This demo site uses basic PHP sessions but you can use whatever session/storage implementation you want.</p>
+
+<pre>
+$_SESSION['oauth_token'] = $request_token['oauth_token'];
+$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+</pre>
+
+<h2>Build authorize URL</h2>
+<p>Here we are building a URL the authorizing users must navigate to in their browser. It is to Twitter's authorize page where the list of permissions being granted is displayed along with allow/deny buttons.</p>
+
+<b>Request</b>
+<pre>
+$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+</pre>
+
+<b>Response <span class="label label-info">Live</span></b>
+<pre>
+{{ dump(url) }}
+</pre>
+<p><a class="btn btn-primary" href="{{ url }}">Next step: authorize on twitter.com</a></p>
+
+{% endblock %}

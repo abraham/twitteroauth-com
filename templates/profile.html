@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>User details</h1>
+<p>The user has now authorized access to their Twitter account. The access_token is specific to the user so anytime you want to act as the user create a TwitterOAuth instance and start making requests.</p>
+
+<h2>Credential storage</h2>
+<p>Pull the long-lived credentials out of storage. This example uses basic PHP sessions but you implementation should use a database like PostgreSQL/MongoDB/etc.</p>
+
+<pre>
+$access_token = $_SESSION['access_token'];
+</pre>
+
+<h2>Authenticated requests</h2>
+<p>Now we make a TwitterOAuth instance with the users access_token.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+</pre>
+
+<h2>Get account details</h2>
+<p>At this point we will use the temporary request token to get the long lived access_token that authorized to act as the user.</p>
+
+<b>Request</b>
+<pre>
+$user = $connection->get("account/verify_credentials", array("include_entities" => false, "skip_status" => true));
+</pre>
+
+<b>Response <span class="label label-info">Live</span></b>
+<pre>
+{{ dump(user) }}
+</pre>
+
+<p>You now have th users Twitter account details.</p>
+
+{% endblock %}
