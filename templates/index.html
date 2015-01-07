@@ -99,7 +99,7 @@ $statues = $connection->post("statuses/update", array("status" => "hello world")
 
 <pre>
 $statues = $connection->post("statuses/update", array("status" => "hello world"));
-if ($connection->http_code == 200) {
+if ($connection->lastHttpCode() == 200) {
     // Tweet posted succesfully
 } else {
     // Handle error case
