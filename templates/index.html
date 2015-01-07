@@ -94,6 +94,18 @@ $statues = $connection->post("statuses/update", array("status" => "hello world")
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
 
+<h3>Proxy</h3>
+<p>HTTP proxy support can be enabled like this.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setProxy(array(
+    'CURLOPT_PROXY' => '127.0.0.0,
+    'CURLOPT_PROXYUSERPWD' => '',
+    'CURLOPT_PROXYPORT' => 8080,
+));
+</pre>
+
 <h2>Error handling</h2>
 <p>After every request you should validate it was a success.</p>
 
