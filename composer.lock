@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "27255b3582f04049358724073e9ddbe7e0efd137"
+                "reference": "9d59061678a32ce99c504df5b80586c00c02afa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/27255b3582f04049358724073e9ddbe7e0efd137",
-                "reference": "27255b3582f04049358724073e9ddbe7e0efd137",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/9d59061678a32ce99c504df5b80586c00c02afa4",
+                "reference": "9d59061678a32ce99c504df5b80586c00c02afa4",
                 "shasum": ""
             },
             "require": {
@@ -45,8 +45,8 @@
                     "role": "Developer"
                 }
             ],
-            "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
-            "homepage": "https://github.com/abraham/twitteroauth",
+            "description": "The most popular PHP library for use with the Twitter OAuth REST API.",
+            "homepage": "http://twitteroauth.com",
             "keywords": [
                 "api",
                 "oauth",
@@ -54,7 +54,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-03 07:28:41"
+            "time": "2015-01-07 02:29:10"
         },
         {
             "name": "twig/twig",
