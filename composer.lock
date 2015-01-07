@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "2af32f222c52a12f1def6be5c83b56e6d27335c7"
+                "reference": "2a5c7b96fb3a3b7509eeca73755a12b74eaa3557"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/2af32f222c52a12f1def6be5c83b56e6d27335c7",
-                "reference": "2af32f222c52a12f1def6be5c83b56e6d27335c7",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/2a5c7b96fb3a3b7509eeca73755a12b74eaa3557",
+                "reference": "2a5c7b96fb3a3b7509eeca73755a12b74eaa3557",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-07 09:18:54"
+            "time": "2015-01-07 09:41:24"
         },
         {
             "name": "twig/twig",
