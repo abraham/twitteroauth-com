@@ -14,7 +14,7 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 /* Get temporary credentials. */
-$request_token = $connection->oauth('oauth/request_token');
+$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
 
 /* If last connection failed don't display authorization link. */
 switch ($connection->http_code) {

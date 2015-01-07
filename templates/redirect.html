@@ -23,7 +23,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 <b>Request</b>
 <pre>
-$request_token = $connection->oauth('oauth/request_token');
+$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
 </pre>
 
 <b>Response <span class="label label-info">Live</span></b>
