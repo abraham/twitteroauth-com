@@ -89,7 +89,18 @@ $statues = $connection->post("statuses/update", array("status" => "hello world")
 </pre>
 
 <h3>Media</h3>
-<p>Media is not currently supported.</p>
+<p>Upload images using <a href="https://dev.twitter.com/rest/public/uploading-media-multiple-photos">POST media/upload</a>.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$media1 = $connection->upload('media/upload', array('media' => '/path/to/file/kitten1.jpg'));
+$media2 = $connection->upload('media/upload', array('media' => '/path/to/file/kitten2.jpg'));
+$parameters = array(
+    'status' => 'Meow Meow Meow',
+    'media_ids' => implode(',', array($media1->media_id_string, $media2->media_id_string)),
+);
+$result = $connection->post('statuses/update', $parameters);
+</pre>
 
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
