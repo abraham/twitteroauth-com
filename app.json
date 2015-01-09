@@ -18,7 +18,7 @@
       "required": true
     },
     "OAUTH_CALLBACK": {
-      "description": "Callback URL from app registered at https://apps.twitter.com/. If site is hosted at https://example.com/ use https://example.com/callback.php.",
+      "description": "Callback URL from app registered at https://apps.twitter.com/. If site is hosted at https://example.herokuapp.com/ use https://example.herokuapp.com/callback.php.",
       "value": "",
       "required": true
     },
