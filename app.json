@@ -1,0 +1,31 @@
+{
+  "name": "TwitterOAuth Demo",
+  "description": "Demo of the most popular PHP library for use with the Twitter OAuth REST API.",
+  "keywords": ["twitter", "api", "oauth", "demo", "rest", "social"],
+  "website": "http://twitteroauth.com",
+  "repository": "https://github.com/abraham/twitteroauth-demo",
+  "logo": "https://raw.githubusercontent.com/abraham/twitteroauth-demo/master/images/twitter-logo-blue.png",
+  "success_url": "/",
+  "env": {
+    "CONSUMER_KEY": {
+      "description": "Consumer Key from app registered at https://apps.twitter.com/.",
+      "value": "",
+      "required": true
+    },
+    "CONSUMER_SECRET": {
+      "description": "Consumer Secret from app registered at https://apps.twitter.com/.",
+      "value": "",
+      "required": true
+    },
+    "OAUTH_CALLBACK": {
+      "description": "Callback URL from app registered at https://apps.twitter.com/. If site is hosted at https://example.com/ use https://example.com/callback.php.",
+      "value": "",
+      "required": true
+    },
+    "GOOGLE_ANALYTICS_ID": {
+      "description": "Google Analytics if you would like to measure traffic to the demo site.",
+      "value": "",
+      "required": false
+    }
+  }
+}
