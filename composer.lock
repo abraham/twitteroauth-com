@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "8bbd9b0ba75392f73b3a1ba0111bb7eb167b469d"
+                "reference": "87823a5e71133b062a9c84a7542541d84f4ee128"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/8bbd9b0ba75392f73b3a1ba0111bb7eb167b469d",
-                "reference": "8bbd9b0ba75392f73b3a1ba0111bb7eb167b469d",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/87823a5e71133b062a9c84a7542541d84f4ee128",
+                "reference": "87823a5e71133b062a9c84a7542541d84f4ee128",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,9 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.4.*"
+                "phpmd/phpmd": "2.*",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "2.*"
             },
             "type": "library",
             "autoload": {
@@ -54,7 +56,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-07 16:05:57"
+            "time": "2015-01-09 19:25:16"
         },
         {
             "name": "twig/twig",
