@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "029203461229c7ff1646cbea95ebbae3",
+    "hash": "cd270bf3420f4a98aa7a658ae3ecf9c6",
     "packages": [
         {
             "name": "abraham/twitteroauth",
-            "version": "dev-master",
+            "version": "0.3.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "87823a5e71133b062a9c84a7542541d84f4ee128"
+                "reference": "2c5744a7f1a8e8186f3e9451b99aedb858331af8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/87823a5e71133b062a9c84a7542541d84f4ee128",
-                "reference": "87823a5e71133b062a9c84a7542541d84f4ee128",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/2c5744a7f1a8e8186f3e9451b99aedb858331af8",
+                "reference": "2c5744a7f1a8e8186f3e9451b99aedb858331af8",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-09 19:25:16"
+            "time": "2015-01-12 01:26:59"
         },
         {
             "name": "twig/twig",
@@ -120,7 +120,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "abraham/twitteroauth": 20
+        "abraham/twitteroauth": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
