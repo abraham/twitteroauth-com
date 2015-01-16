@@ -5,31 +5,64 @@
     <h1>TwitterOAuth</h1>
     <p class="lead">The most popular PHP library for use with the Twitter OAuth REST API.</p>
 </div>
+
+
 <h2>Installation</h2>
-<p>Is easy as pie with Composer. <a href="https://packagist.org/packages/abraham/twitteroauth"><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"></a></p>
+
+<div class="btn-group" role="group" aria-label="...">
+    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#install-composer" aria-expanded="false" aria-controls="install-composer">Composer install</button>
+    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#install-manual" aria-expanded="false" aria-controls="install-manual">Manual install</button>
+</div>
+
+
+<div class="collapse in" id="install-composer">
+    <h4>With Composer</h4>
+
+    <p>The recommended and easy as pie method is <a href="https://getcomposer.org/">Composer</a>. Setup require in your projects composer.json file. Latest release: <a href="https://packagist.org/packages/abraham/twitteroauth"><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"></a></p>
 
 <pre>
 "require": {
     "php": ">=5.4.0",
-    "abraham/twitteroauth": "0.3.0-beta"
+    "abraham/twitteroauth": "0.3.0"
 }
 </pre>
 
-<p>Import the TwitterOAuth class.</p>
+    <p>Import the TwitterOAuth class.</p>
 <pre>
 require "vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 </pre>
 
-<p>Start making API requests.</p>
+    <p>Start making API requests.</p>
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
 </pre>
+</div>
+
+
+<div class="collapse" id="install-manual">
+    <h4>The old fashioned way</h4>
+
+    <p>Download the <a href="https://github.com/abraham/twitteroauth/releases">latest release</a> and unpack in a <code>twitteroauth</code> directory. Require the autoloader that will in turn require the TwitterOAuth classes automatically.</p>
+<pre>
+require "twitteroauth/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+</pre>
+
+    <p>Start making API requests.</p>
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$content = $connection->get("account/verify_credentials");
+</pre>
+</div>
+
 
 <h2>Authorization flow</h2>
 <p>This site is a working example. <a href="/redirect.php"><img src="/images/sign-in-with-twitter-link.png" alt="Sign in with Twitter" title="Sign in with Twitter" /></a> to see the flow.</p>
+
 
 <h2>Usage</h2>
 <p>Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom function for every API method. Instead there are a couple of generic functions so that as Twitter adds features to the API you don't need to update the library. Here is an example of <a href="https://dev.twitter.com/rest/reference/get/statuses/home_timeline">GET statues/home_timeline</a>.</p>
@@ -44,8 +77,10 @@ GET https://api.twitter.com/1.1/statuses/home_timeline.json?count=25&exclude_rep
 $statues = $connection->get("statuses/home_timeline", array("count" => 25, "exclude_replies" => true));
 </pre>
 
+
 <h2>Methods</h2>
 <p>TwitterOAuth provides a couple of minimalist wrappers around Twitter's API methods.</p>
+
 
 <h3>OAuth</h3>
 <p>Only used when authorizing access to a users account. Includes API methods like <a href="https://dev.twitter.com/oauth/reference/post/oauth/request_token">POST oauth/request_token</a> and <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token">POST oauth/access_token</a>.</p>
@@ -55,6 +90,7 @@ $statues = $connection->get("statuses/home_timeline", array("count" => 25, "excl
 $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"));
 </pre>
 
+
 <h3>URL</h3>
 <p>This is a special wrapper that doesn't hit the API. It builds the URL where users will authorize access to their account at. Only used for <a href="https://dev.twitter.com/oauth/reference/get/oauth/authorize">GET oauth/authorize</a> and <a href="https://dev.twitter.com/oauth/reference/get/oauth/authorize">GET oauth/authenticate</a>.</p>
 
@@ -62,6 +98,7 @@ $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" 
 <pre>
 $url = $connection->url("oauth/authorize", array("oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"));
 </pre>
+
 
 <h3>GET</h3>
 <p>API methods that are HTTP GET requests. E.g. <a href="https://dev.twitter.com/rest/reference/get/search/tweets">GET search/tweets</a>.</p>
@@ -76,6 +113,7 @@ GET https://api.twitter.com/1.1/search/tweets.json?q=twitterapi
 $statues = $connection->get("search/tweets", array("q" => "twitterapi));
 </pre>
 
+
 <h3>POST</h3>
 <p>API methods that are HTTP POST requests. E.g. <a href="https://dev.twitter.com/rest/reference/post/statuses/update">POST statuses/update</a>.</p>
 
@@ -88,6 +126,7 @@ POST https://api.twitter.com/1.1/statuses/update.json?status=hello%20world
 <pre>
 $statues = $connection->post("statuses/update", array("status" => "hello world"));
 </pre>
+
 
 <h3>Media</h3>
 <p>Upload images using <a href="https://dev.twitter.com/rest/public/uploading-media-multiple-photos">POST media/upload</a>.</p>
@@ -103,8 +142,10 @@ $parameters = array(
 $result = $connection->post('statuses/update', $parameters);
 </pre>
 
+
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
+
 
 <h3>Proxy</h3>
 <p>HTTP proxy support can be enabled like this.</p>
@@ -117,6 +158,7 @@ $connection->setProxy(array(
     'CURLOPT_PROXYPORT' => 8080,
 ));
 </pre>
+
 
 <h2>Error handling</h2>
 <p>After every request you should validate it was a success.</p>
