@@ -30,9 +30,9 @@ $user = $connection->get("account/verify_credentials", array("include_entities" 
 <br>
 <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#profile-response" aria-expanded="false" aria-controls="profile-response">View response</button>
 
-<div class="collapse" id="profile-response">
+<pre class="collapse" id="profile-response">
 {{ dump(user) }}
-</div>
+</pre>
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
