@@ -5,7 +5,6 @@ $twig = new Twig_Environment($loader, array(
     'debug' => true,
 ));
 if (getenv('TEMPLATE_CACHE_ENABLED') && getenv('TEMPLATE_CACHE_ENABLED') === 'true') {
-    var_dump('cache');
     $twig->setCache(__DIR__ . DIRECTORY_SEPARATOR . 'cache');
 }
 if (getenv('GOOGLE_ANALYTICS_ID')) {
