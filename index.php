@@ -11,6 +11,6 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
 echo $twig->render('index.html');
 
-foreach (apache_request_headers() as $name => $value) {
+foreach ($_SERVER as $name => $value) {
     error_log("HEADER: $name: $value");
 }
