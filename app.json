@@ -26,6 +26,21 @@
       "description": "Google Analytics if you would like to measure traffic to the demo site.",
       "value": "",
       "required": false
+    },
+    "FORCE_TLS": {
+      "description": "Enable if you are running on a host with HTTPS.",
+      "value": "false",
+      "required": true
+    },
+    "HOST": {
+      "description": "The subdomain and domain the site is running on. E.g. example.com or example.herokuap.com.",
+      "value": "",
+      "required": true
+    },
+    "DEBUG": {
+      "description": "Debug disables some things you only want running in production.",
+      "value": "false",
+      "required": true
     }
   }
 }
