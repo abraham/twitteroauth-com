@@ -1,19 +1,7 @@
 <?php
 
-/* Start session and load lib */
-session_start();
-require 'vendor/autoload.php';
-require 'templates.php';
+require 'bootstrap.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
-
-define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
-define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
-define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
-
-if (!CONSUMER_KEY || !CONSUMER_SECRET || !OAUTH_CALLBACK) {
-    exit('The CONSUMER_KEY, CONSUMER_SECRET, and OAUTH_CALLBACK environment variables must be set to use this demo.'
-         . 'You can register an app with Twitter at https://apps.twitter.com/.');
-}
 
 /* Get temporary credentials from session. */
 $request_token = [];
@@ -22,9 +10,9 @@ $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
 
 /* If the oauth_token is not what we expect, bail. */
 if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
-  $_SESSION['oauth_status'] = 'oldtoken';
-  header('Location: ./clearsessions.php');
-  exit;
+    $_SESSION['oauth_status'] = 'oldtoken';
+    header('Location: ./clearsessions.php');
+    exit;
 }
 
 /* Create TwitteroAuth object with app key/secret and token key/secret from default phase */
