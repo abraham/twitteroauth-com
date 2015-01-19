@@ -10,3 +10,7 @@ define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
 define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
 echo $twig->render('index.html');
+
+foreach (getallheaders() as $name => $value) {
+    error_log("HEADER: $name: $value");
+}
