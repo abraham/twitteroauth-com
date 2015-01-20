@@ -8,6 +8,11 @@ $request_token = [];
 $request_token['oauth_token'] = $_SESSION['oauth_token'];
 $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
 
+/* If denied, bail. */
+if (isset($_REQUEST['denied'])) {
+    exit('Permission was denied. Please start over.');
+}
+
 /* If the oauth_token is not what we expect, bail. */
 if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
     $_SESSION['oauth_status'] = 'oldtoken';
