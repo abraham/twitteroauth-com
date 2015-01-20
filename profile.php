@@ -12,6 +12,7 @@ if (
     header('Location: ./clearsessions.php');
     exit;
 }
+
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION['access_token'];
 
@@ -22,4 +23,3 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 $user = $connection->get("account/verify_credentials", array("include_entities" => false));
 
 echo $twig->render("profile.html", array("access_token" => $access_token, "user" => $user));
-

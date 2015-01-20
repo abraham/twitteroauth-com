@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30908beeab6a524f33f9ba9916be4895",
+    "hash": "903845aa43897d32c7a25c5370600494",
     "packages": [
         {
             "name": "abraham/twitteroauth",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "e715e57f701d0f8daf82db37fcb971d340361e42"
+                "reference": "157dafe39f6bfe4efe9fcb49879a960f5e0de8f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/e715e57f701d0f8daf82db37fcb971d340361e42",
-                "reference": "e715e57f701d0f8daf82db37fcb971d340361e42",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/157dafe39f6bfe4efe9fcb49879a960f5e0de8f0",
+                "reference": "157dafe39f6bfe4efe9fcb49879a960f5e0de8f0",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-19 21:34:05"
+            "time": "2015-01-20 14:56:59"
         },
         {
             "name": "twig/twig",
