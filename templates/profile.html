@@ -23,7 +23,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 
 <b>Request</b>
 <pre>
-$user = $connection->get("account/verify_credentials", array("include_entities" => false));
+$user = $connection->get("account/verify_credentials");
 </pre>
 
 <b>Response <span class="label label-info">Live</span></b>
