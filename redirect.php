@@ -10,7 +10,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
 
 /* If last connection failed don't display authorization link. */
-switch ($connection->lastHttpCode()) {
+switch ($connection->getLastHttpCode()) {
     case 200:
         /* Save temporary credentials to session. */
         $_SESSION['oauth_token'] = $request_token['oauth_token'];

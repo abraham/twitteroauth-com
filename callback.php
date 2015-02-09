@@ -27,7 +27,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
 /* If HTTP response is 200 continue otherwise send to connect page to retry */
-if (200 == $connection->lastHttpCode()) {
+if (200 == $connection->getLastHttpCode()) {
     /* Save the access tokens. Normally these would be saved in a database for future use. */
     $_SESSION['access_token'] = $access_token;
 
