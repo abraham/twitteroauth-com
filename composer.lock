@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b928f6213abad6eededd92f6e1713e6c",
+    "hash": "ad0d5d97638bb02dfde48bb575ff9852",
     "packages": [
         {
             "name": "abraham/twitteroauth",
-            "version": "0.5.0",
+            "version": "0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "875918bad4f1e9651635ee3107f5edcce34b4acd"
+                "reference": "040a2ebe76dc836e5edab83e7f036897a8715785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/875918bad4f1e9651635ee3107f5edcce34b4acd",
-                "reference": "875918bad4f1e9651635ee3107f5edcce34b4acd",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/040a2ebe76dc836e5edab83e7f036897a8715785",
+                "reference": "040a2ebe76dc836e5edab83e7f036897a8715785",
                 "shasum": ""
             },
             "require": {
@@ -50,13 +50,15 @@
             "description": "The most popular PHP library for use with the Twitter OAuth REST API.",
             "homepage": "https://twitteroauth.com",
             "keywords": [
+                "Twitter API",
+                "Twitter oAuth",
                 "api",
                 "oauth",
                 "rest",
                 "social",
                 "twitter"
             ],
-            "time": "2015-01-22 21:47:15"
+            "time": "2015-03-19 05:51:18"
         },
         {
             "name": "twig/twig",
