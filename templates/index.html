@@ -172,4 +172,14 @@ if ($connection->getLastHttpCode() == 200) {
 }
 </pre>
 
+<h3>Changing timout settings</h3>
+<p>If you experience any timeout errors you can change the default timeout settings for cURL.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setTimeouts(10, 15);
+</pre>
+
+<p>The first parameter corresponds to the timeout for the connect phase and the second to the maximum time the request is allowed to take.</p>
+
 {% endblock %}
