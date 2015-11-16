@@ -1,5 +1,5 @@
-{       
-    "name": "abraham/twitteroauth-demo", 
+{
+    "name": "abraham/twitteroauth-demo",
     "type": "library",
     "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
     "keywords": ["twitter", "api", "oauth", "demo", "rest", "social"],
@@ -18,8 +18,8 @@
         "issues": "https://github.com/abraham/twitteroauth-demo/issues"
     },
     "require": {
-        "php": ">=5.4.0",
-        "twig/twig": "1.18.0",
-        "abraham/twitteroauth": "0.5.2"
+        "php": ">=5.5.0",
+        "twig/twig": "1.23.1",
+        "abraham/twitteroauth": "0.6.2"
     }
 }
