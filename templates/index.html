@@ -161,11 +161,16 @@ $connection->setProxy(array(
 <p>After every request you should validate it was a success.</p>
 
 <pre>
-$statues = $connection->post("statuses/update", array("status" => "hello world"));
-if ($connection->getLastHttpCode() == 200) {
-    // Tweet posted succesfully
-} else {
-    // Handle error case
+try {
+    $statues = $connection->post("statuses/update", array("status" => "hello world"));
+	
+    if ($connection->getLastHttpCode() == 200) {
+        // Tweet posted succesfully
+    } else {
+        // Handle error case
+    }
+} catch (TwitterOAuthException $e) {
+    // Handle exception
 }
 </pre>
 
