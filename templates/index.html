@@ -71,7 +71,7 @@ GET https://api.twitter.com/1.1/statuses/home_timeline.json?count=25&exclude_rep
 
 <b>TwitterOAuth</b>
 <pre>
-$statuses = $connection->get("statuses/home_timeline", array("count" => 25, "exclude_replies" => true));
+$statuses = $connection->get("statuses/home_timeline", ["count" => 25, "exclude_replies" => true]);
 </pre>
 
 
@@ -84,7 +84,7 @@ $statuses = $connection->get("statuses/home_timeline", array("count" => 25, "exc
 
 <b>Example</b>
 <pre>
-$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"));
+$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"]);
 </pre>
 
 
@@ -93,7 +93,7 @@ $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" 
 
 <b>Example</b>
 <pre>
-$url = $connection->url("oauth/authorize", array("oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"));
+$url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"]);
 </pre>
 
 
@@ -107,7 +107,7 @@ GET https://api.twitter.com/1.1/search/tweets.json?q=twitterapi
 
 <b>TwitterOAuth</b>
 <pre>
-$statuses = $connection->get("search/tweets", array("q" => "twitterapi"));
+$statuses = $connection->get("search/tweets", ["q" => "twitterapi"]);
 </pre>
 
 
@@ -121,7 +121,7 @@ POST https://api.twitter.com/1.1/statuses/update.json?status=hello%20world
 
 <b>TwitterOAuth</b>
 <pre>
-$statues = $connection->post("statuses/update", array("status" => "hello world"));
+$statues = $connection->post("statuses/update", ["status" => "hello world"]);
 </pre>
 
 
@@ -130,12 +130,12 @@ $statues = $connection->post("statuses/update", array("status" => "hello world")
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$media1 = $connection->upload('media/upload', array('media' => '/path/to/file/kitten1.jpg'));
-$media2 = $connection->upload('media/upload', array('media' => '/path/to/file/kitten2.jpg'));
-$parameters = array(
+$media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1.jpg']);
+$media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg']);
+$parameters = [
     'status' => 'Meow Meow Meow',
-    'media_ids' => implode(',', array($media1->media_id_string, $media2->media_id_string)),
-);
+    'media_ids' => implode(',', [$media1->media_id_string, $media2->media_id_string]),
+];
 $result = $connection->post('statuses/update', $parameters);
 </pre>
 
@@ -149,11 +149,11 @@ $result = $connection->post('statuses/update', $parameters);
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$connection->setProxy(array(
+$connection->setProxy([
     'CURLOPT_PROXY' => '127.0.0.0',
     'CURLOPT_PROXYUSERPWD' => '',
     'CURLOPT_PROXYPORT' => 8080,
-));
+]);
 </pre>
 
 
@@ -161,7 +161,7 @@ $connection->setProxy(array(
 <p>After every request you should validate it was a success.</p>
 
 <pre>
-$statues = $connection->post("statuses/update", array("status" => "hello world"));
+$statues = $connection->post("statuses/update", ["status" => "hello world"]);
 if ($connection->getLastHttpCode() == 200) {
     // Tweet posted succesfully
 } else {

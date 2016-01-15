@@ -41,7 +41,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 
 <b>Request</b>
 <pre>
-$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
+$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
 </pre>
 
 <b>Response <span class="label label-info">Live</span></b>

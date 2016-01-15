@@ -21,4 +21,4 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 /* If method is set change API call made. Test is called by default. */
 $user = $connection->get("account/verify_credentials");
 
-echo $twig->render("profile.html", array("access_token" => $access_token, "user" => $user));
+echo $twig->render("profile.html", ["access_token" => $access_token, "user" => $user]);

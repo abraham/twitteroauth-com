@@ -24,7 +24,7 @@ if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUE
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oauth_token'], $request_token['oauth_token_secret']);
 
 /* Request access tokens from twitter */
-$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
+$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
 
 /* If HTTP response is 200 continue otherwise send to connect page to retry */
 if (200 == $connection->getLastHttpCode()) {
@@ -42,4 +42,4 @@ if (200 == $connection->getLastHttpCode()) {
     exit;
 }
 
-echo $twig->render("callback.html", array("access_token" => $access_token));
+echo $twig->render("callback.html", ["access_token" => $access_token]);

@@ -7,7 +7,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 /* Get temporary credentials. */
-$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
+$request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => OAUTH_CALLBACK]);
 
 /* If last connection failed don't display authorization link. */
 switch ($connection->getLastHttpCode()) {
@@ -17,11 +17,11 @@ switch ($connection->getLastHttpCode()) {
         $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 
         /* Build authorize URL and redirect user to Twitter. */
-        $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+        $url = $connection->url('oauth/authorize', ['oauth_token' => $request_token['oauth_token']]);
         break;
     default:
         /* Show notification if something went wrong. */
         echo 'Could not connect to Twitter. Refresh the page or try again later.';
 }
 
-echo $twig->render("redirect.html", array("request_token" => $request_token, "url" => $url));
+echo $twig->render("redirect.html", ["request_token" => $request_token, "url" => $url]);
