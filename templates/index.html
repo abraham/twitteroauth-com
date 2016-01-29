@@ -134,7 +134,7 @@ $media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1
 $media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg']);
 $parameters = [
     'status' => 'Meow Meow Meow',
-    'media_ids' => implode(',', [$media1->media_id_string, $media2->media_id_string]),
+    'media_ids' => implode(',', [$media1->media_id_string, $media2->media_id_string])
 ];
 $result = $connection->post('statuses/update', $parameters);
 </pre>
