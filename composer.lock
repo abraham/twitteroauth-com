@@ -4,31 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "324ddd4285a87e53f8fa7b52c2753845",
-    "content-hash": "3a9f40b0275c0383e90095518a84d013",
+    "hash": "76fb1d34551d4a74a1d60f51a501df5b",
+    "content-hash": "0862642219efe8140d1ce6bcfa2b642d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
-            "version": "0.6.2",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "d4fc4a3c36f5ecdfc8865ab1e7cefc432e49491c"
+                "reference": "119d5a83478a2d21c09cd27980ab67eba11c8fe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/d4fc4a3c36f5ecdfc8865ab1e7cefc432e49491c",
-                "reference": "d4fc4a3c36f5ecdfc8865ab1e7cefc432e49491c",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/119d5a83478a2d21c09cd27980ab67eba11c8fe1",
+                "reference": "119d5a83478a2d21c09cd27980ab67eba11c8fe1",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": ">=5.5.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "phpmd/phpmd": "2.2.*",
-                "phpunit/phpunit": "4.7.*",
-                "squizlabs/php_codesniffer": "2.3.*"
+                "phpmd/phpmd": "~2.4",
+                "phpunit/phpunit": "~5.6",
+                "squizlabs/php_codesniffer": "~2.7"
             },
             "type": "library",
             "autoload": {
@@ -59,20 +59,20 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-11-05 04:04:20"
+            "time": "2016-12-12 17:42:13"
         },
         {
             "name": "twig/twig",
-            "version": "v1.23.1",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6"
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
-                "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898",
                 "shasum": ""
             },
             "require": {
@@ -80,12 +80,12 @@
             },
             "require-dev": {
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~2.7"
+                "symfony/phpunit-bridge": "~3.2@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.23-dev"
+                    "dev-master": "1.29-dev"
                 }
             },
             "autoload": {
@@ -120,7 +120,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-11-05 12:49:06"
+            "time": "2016-12-13 17:28:18"
         }
     ],
     "packages-dev": [],
@@ -130,7 +130,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
