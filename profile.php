@@ -19,6 +19,13 @@ $access_token = $_SESSION['access_token'];
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 
 /* If method is set change API call made. Test is called by default. */
-$user = $connection->get("account/verify_credentials");
+$user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
 
-echo $twig->render("profile.html", ["access_token" => $access_token, "user" => $user]);
+if (property_exists($user, 'status')) {
+  $tweet = clone $user->status;
+  $tweet->user = clone $user;
+} else {
+  $tweet = [];
+}
+
+echo $twig->render('profile.html', ['access_token' => $access_token, 'user' => $user, 'json_status' => json_encode($tweet)]);

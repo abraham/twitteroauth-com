@@ -23,7 +23,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 
 <b>Request</b>
 <pre>
-$user = $connection->get("account/verify_credentials");
+$user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
 </pre>
 
 <b>Response <span class="label label-info">Live</span></b>
@@ -36,18 +36,18 @@ $user = $connection->get("account/verify_credentials");
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
-<div class="media">
+{% if user.status %}
+  <twitter-status status="{{ json_status }}"></twitter-status>
+{% else %}
+  <div class="media">
     <a class="media-left" href="https://twitter.com/{{ user.screen_name }}">
-        <img src="{{ user.profile_image_url_https }}" alt="..." class="img-rounded">
+      <img src="{{ user.profile_image_url_https }}" alt="..." class="img-circle">
     </a>
     <div class="media-body">
-        <h4 class="media-heading"><a href="https://twitter.com/{{ user.screen_name }}">{{ user.name }} <small>@{{ user.screen_name }}</small></a></h4>
-        {% if user.status %}
-            {{ user.status.text }}
-        {% else %}
-            {{ user.description }}
-        {% endif %}
+      <h4 class="media-heading"><a href="https://twitter.com/{{ user.screen_name }}">{{ user.name }} <small>@{{ user.screen_name }}</small></a></h4>
+      {{ user.description }}
     </div>
-</div>
+  </div>
+{% endif %}
 
 {% endblock %}
