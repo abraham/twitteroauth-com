@@ -22,17 +22,21 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
 
 if (property_exists($user, 'status')) {
-  $tweet = clone $user->status;
-  $tweet->user = clone $user;
+    // Embedded status doesn't always have everything needed for <twitter-status>
+    $tweet = $connection->get('statuses/show', [
+      'id' => $user->status->id_str,
+      'tweet_mode' => 'extended',
+      'include_entities' => 'true'
+    ]);
 } else {
-  $tweet = [];
+    $tweet = [];
 }
 
 $data = [
-  'access_token' => $access_token,
-  'json_status' => json_encode($tweet),
-  'json_user' => json_encode($user),
-  'user' => $user,
+    'access_token' => $access_token,
+    'json_status' => json_encode($tweet),
+    'json_user' => json_encode($user),
+    'user' => $user,
 ];
 
 echo $twig->render('profile.html', $data);
