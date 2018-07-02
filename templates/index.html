@@ -7,18 +7,24 @@
 </div>
 
 
-<h2>Installation <a href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/index.html"><span class="glyphicon glyphicon-edit small" aria-hidden="true" title="Edit this page on GitHub"></span></a></h2>
+<h2>Installation <a href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/index.html">
+  <span class="glyphicon glyphicon-edit small" aria-hidden="true" title="Edit this page on GitHub"></span></a></h2>
 
-<div class="btn-group" role="group" aria-label="...">
-    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#install-composer" aria-expanded="true" aria-controls="install-composer">Composer install</button>
-    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#install-manual" aria-expanded="false" aria-controls="install-manual">Manual install</button>
-</div>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a  href="#composer" data-toggle="tab">Composer</a>
+    </li>
+    <li>
+      <a href="#manual" data-toggle="tab">Manual</a>
+    </li>
+  </ul>
 
+  <div class="tab-content ">
+    <div class="tab-pane active" id="composer">
+      <h4>With Composer</h4>
 
-<div class="collapse in" id="install-composer">
-    <h4>With Composer</h4>
-
-    <p>The recommended and easy as pie method is <a href="https://getcomposer.org/">Composer</a>. Setup require in your projects composer.json file. Latest release: <a href="https://packagist.org/packages/abraham/twitteroauth"><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"></a></p>
+      <p>The recommended and easy as pie method is <a href="https://getcomposer.org/">Composer</a>. Setup require in your projects composer.json file. Latest release: <a href="https://packagist.org/packages/abraham/twitteroauth"><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"></a></p>
 
 <pre>
 composer require abraham/twitteroauth
@@ -36,8 +42,25 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
 </pre>
-</div>
+    </div>
+    <div class="tab-pane" id="manual">
+        <h4>The old fashioned way</h4>
 
+        <p>Download the <a href="https://github.com/abraham/twitteroauth/releases">latest release</a> and unpack in a <code>twitteroauth</code> directory. Require the autoloader that will in turn require the TwitterOAuth classes automatically.</p>
+<pre>
+require "twitteroauth/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+</pre>
+
+        <p>Start making API requests.</p>
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$content = $connection->get("account/verify_credentials");
+</pre>
+    </div>
+  </div>
+</div>
 
 <h2>Requirements</h2>
 
