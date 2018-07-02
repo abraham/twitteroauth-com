@@ -175,6 +175,28 @@ $result = $connection->post('statuses/update', $parameters);
 </pre>
 
 
+<h3>JSON data</h3>
+<p>Send JSON dat to <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event">POST direct_messages/events/new</a>.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$data = [
+    'event' => [
+        'type' => 'message_create',
+        'message_create' => [
+            'target' => [
+                'recipient_id' => $userId
+            ],
+            'message_data' => [
+                'text' => 'Hello World!'
+            ]
+        ]
+    ]
+];
+$result = $connection->post('direct_messages/events/new ', $data, true); // Note the true
+</pre>
+
+
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
 
