@@ -36,18 +36,11 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
+<twitter-user user="{{ json_user }}"></twitter-user>
+
 {% if user.status %}
+  <br>
   <twitter-status status="{{ json_status }}"></twitter-status>
-{% else %}
-  <div class="media">
-    <a class="media-left" href="https://twitter.com/{{ user.screen_name }}">
-      <img src="{{ user.profile_image_url_https }}" alt="..." class="img-circle">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading"><a href="https://twitter.com/{{ user.screen_name }}">{{ user.name }} <small>@{{ user.screen_name }}</small></a></h4>
-      {{ user.description }}
-    </div>
-  </div>
 {% endif %}
 
 {% endblock %}

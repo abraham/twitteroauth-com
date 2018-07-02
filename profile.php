@@ -28,4 +28,11 @@ if (property_exists($user, 'status')) {
   $tweet = [];
 }
 
-echo $twig->render('profile.html', ['access_token' => $access_token, 'user' => $user, 'json_status' => json_encode($tweet)]);
+$data = [
+  'access_token' => $access_token,
+  'json_status' => json_encode($tweet),
+  'json_user' => json_encode($user),
+  'user' => $user,
+];
+
+echo $twig->render('profile.html', $data);
