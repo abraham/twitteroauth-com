@@ -6,6 +6,7 @@
   "repository": "https://github.com/abraham/twitteroauth-demo",
   "logo": "https://raw.githubusercontent.com/abraham/twitteroauth-demo/master/images/twitter-logo-blue.png",
   "success_url": "/",
+  "stack": "heroku-18",
   "env": {
     "CONSUMER_KEY": {
       "description": "Consumer Key from app registered at https://apps.twitter.com/.",
