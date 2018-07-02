@@ -97,7 +97,7 @@ $content = $connection->get("account/verify_credentials");
 
 
 <h2>Usage</h2>
-<p>Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom function for every API method. Instead there are a couple of generic functions so that as Twitter adds features to the API you don't need to update the library. Here is an example of <a href="https://dev.twitter.com/rest/reference/get/statuses/home_timeline">GET statuses/home_timeline</a>.</p>
+<p>Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom function for every API method. Instead there are a couple of generic functions so that as Twitter adds features to the API you don't need to update the library. Here is an example of <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline">GET statuses/home_timeline</a>.</p>
 
 <b>HTTP</b>
 <pre>
@@ -115,7 +115,7 @@ $statuses = $connection->get("statuses/home_timeline", ["count" => 25, "exclude_
 
 
 <h3>OAuth</h3>
-<p>Only used when authorizing access to a users account. Includes API methods like <a href="https://dev.twitter.com/oauth/reference/post/oauth/request_token">POST oauth/request_token</a> and <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token">POST oauth/access_token</a>.</p>
+<p>Only used when authorizing access to a users account. Includes API methods like <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token">POST oauth/request_token</a> and <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token">POST oauth/access_token</a>.</p>
 
 <b>Example</b>
 <pre>
@@ -124,7 +124,7 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "n
 
 
 <h3>URL</h3>
-<p>This is a special wrapper that doesn't hit the API. It builds the URL where users will authorize access to their account at. Only used for <a href="https://dev.twitter.com/oauth/reference/get/oauth/authorize">GET oauth/authorize</a> and <a href="https://dev.twitter.com/oauth/reference/get/oauth/authorize">GET oauth/authenticate</a>.</p>
+<p>This is a special wrapper that doesn't hit the API. It builds the URL where users will authorize access to their account at. Only used for <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize">GET oauth/authorize</a> and <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize">GET oauth/authenticate</a>.</p>
 
 <b>Example</b>
 <pre>
@@ -133,7 +133,7 @@ $url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp
 
 
 <h3>GET</h3>
-<p>API methods that are HTTP GET requests. E.g. <a href="https://dev.twitter.com/rest/reference/get/search/tweets">GET search/tweets</a>.</p>
+<p>API methods that are HTTP GET requests. E.g. <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html">GET search/tweets</a>.</p>
 
 <b>HTTP</b>
 <pre>
@@ -147,7 +147,7 @@ $statuses = $connection->get("search/tweets", ["q" => "twitterapi"]);
 
 
 <h3>POST</h3>
-<p>API methods that are HTTP POST requests. E.g. <a href="https://dev.twitter.com/rest/reference/post/statuses/update">POST statuses/update</a>.</p>
+<p>API methods that are HTTP POST requests. E.g. <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update">POST statuses/update</a>.</p>
 
 <b>HTTP</b>
 <pre>
@@ -161,7 +161,7 @@ $statues = $connection->post("statuses/update", ["status" => "hello world"]);
 
 
 <h3>Media</h3>
-<p>Upload images using <a href="https://dev.twitter.com/rest/reference/post/media/upload">POST media/upload</a>.</p>
+<p>Upload images using <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html">POST media/upload</a>.</p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
