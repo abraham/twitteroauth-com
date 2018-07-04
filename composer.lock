@@ -1,28 +1,28 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bf92fcb23ec4917ecafe553aa8bd867",
+    "content-hash": "0bcd073991fbd889eac2896ef8046957",
     "packages": [
         {
             "name": "abraham/twitteroauth",
-            "version": "0.7.4",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "c6f9e692552dd037b2324ed0dfa28a4e60875acf"
+                "reference": "28697071d270f9336ab590c1716cc0237ffeb5ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/c6f9e692552dd037b2324ed0dfa28a4e60875acf",
-                "reference": "c6f9e692552dd037b2324ed0dfa28a4e60875acf",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/28697071d270f9336ab590c1716cc0237ffeb5ee",
+                "reference": "28697071d270f9336ab590c1716cc0237ffeb5ee",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": "^5.6 || ^7.0"
+                "php": "^5.6 || ^7.0 || ^7.1 || ^7.2"
             },
             "require-dev": {
                 "phpmd/phpmd": "~2.6",
@@ -58,7 +58,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2017-06-30T22:02:01+00:00"
+            "time": "2018-07-04T01:28:41+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -193,7 +193,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": "~7.1"
     },
     "platform-dev": []
 }
