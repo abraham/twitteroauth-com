@@ -1,10 +1,8 @@
-TwitterOAuth
-------------
+## TwitterOAuth
 
 Documentation and demo site for the TwitterOAuth PHP library.
 
-Development
-===========
+# Development
 
 1. Register a [Twitter app](https://apps.twitter.com).
 1. Set `http://localhost:8000/callback.php` as a "Callback URL" in the newly registered application.
@@ -14,8 +12,7 @@ Development
 1. Run `./scripts/dev.sh`.
 1. Visit [http://localhost:8000/](http://localhost:8000/).
 
-Deploy
-======
+# Deploy
 
 1. Create a [Heroku app](https://www.heroku.com).
 1. Register a [Twitter app](https://apps.twitter.com).

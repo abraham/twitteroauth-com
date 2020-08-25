@@ -1,0 +1,31 @@
+{
+  "name": "twitteroauth-demo",
+  "version": "0.0.0",
+  "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
+  "scripts": {
+    "fix": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/twitteroauth-demo.git"
+  },
+  "keywords": [
+    "twitter",
+    "api",
+    "oauth",
+    "demo",
+    "rest",
+    "social"
+  ],
+  "author": "Abraham Williams <abraham@abrah.am>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abraham/twitteroauth-demo/issues"
+  },
+  "homepage": "https://twitteroauth.com",
+  "private": true,
+  "devDependencies": {
+    "prettier": "2.1.0"
+  }
+}

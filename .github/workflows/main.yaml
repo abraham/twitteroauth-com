@@ -1,0 +1,10 @@
+name: Main
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run lint

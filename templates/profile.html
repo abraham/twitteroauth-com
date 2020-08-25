@@ -1,11 +1,27 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>User details <a href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/profile.html"><span class="glyphicon glyphicon-edit small" aria-hidden="true" title="Edit this page on GitHub"></span></a></h1>
-<p>The user has now authorized access to their Twitter account. The access_token is specific to the user so anytime you want to act as the user create a TwitterOAuth instance and start making requests.</p>
+{% extends "base.html" %} {% block content %}
+<h1>
+  User details
+  <a
+    href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/profile.html"
+    ><span
+      class="glyphicon glyphicon-edit small"
+      aria-hidden="true"
+      title="Edit this page on GitHub"
+    ></span
+  ></a>
+</h1>
+<p>
+  The user has now authorized access to their Twitter account. The access_token
+  is specific to the user so anytime you want to act as the user create a
+  TwitterOAuth instance and start making requests.
+</p>
 
 <h2>Credential storage</h2>
-<p>Pull the long-lived credentials out of storage. This example uses basic PHP sessions but your implementation should use a database like PostgreSQL/MongoDB/etc.</p>
+<p>
+  Pull the long-lived credentials out of storage. This example uses basic PHP
+  sessions but your implementation should use a database like
+  PostgreSQL/MongoDB/etc.
+</p>
 
 <pre>
 $access_token = $_SESSION['access_token'];
@@ -19,7 +35,10 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 </pre>
 
 <h2>Get account details</h2>
-<p>At this point we will use the access token that is authorized to act as the user, to get their account details.</p>
+<p>
+  At this point we will use the access token that is authorized to act as the
+  user, to get their account details.
+</p>
 
 <b>Request</b>
 <pre>
@@ -27,8 +46,17 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 </pre>
 
 <b>Response <span class="label label-info">Live</span></b>
-<br>
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#profile-response" aria-expanded="false" aria-controls="profile-response">View response</button>
+<br />
+<button
+  class="btn btn-default"
+  type="button"
+  data-toggle="collapse"
+  data-target="#profile-response"
+  aria-expanded="false"
+  aria-controls="profile-response"
+>
+  View response
+</button>
 
 <pre class="collapse" id="profile-response">
 {{ dump(user) }}
@@ -39,8 +67,6 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 <twitter-user user="{{ json_user }}"></twitter-user>
 
 {% if user.status %}
-  <br>
-  <twitter-status status="{{ json_status }}"></twitter-status>
-{% endif %}
-
-{% endblock %}
+<br />
+<twitter-status status="{{ json_status }}"></twitter-status>
+{% endif %} {% endblock %}

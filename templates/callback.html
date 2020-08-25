@@ -1,8 +1,20 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>Finish authorization <a href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/callback.html"><span class="glyphicon glyphicon-edit small" aria-hidden="true" title="Edit this page on GitHub"></span></a></h1>
-<p>The user should now have returned from Twitter having authorized access to their account. A request_token is a short-lived one time use value so if it is invalid users will have to start the authorization flow over.</p>
+{% extends "base.html" %} {% block content %}
+<h1>
+  Finish authorization
+  <a
+    href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/callback.html"
+    ><span
+      class="glyphicon glyphicon-edit small"
+      aria-hidden="true"
+      title="Edit this page on GitHub"
+    ></span
+  ></a>
+</h1>
+<p>
+  The user should now have returned from Twitter having authorized access to
+  their account. A request_token is a short-lived one time use value so if it is
+  invalid users will have to start the authorization flow over.
+</p>
 
 <h2>Bootstrapping</h2>
 <p>Set up as before but hold off on the TwitterOAuth instance.</p>
@@ -17,7 +29,11 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 </pre>
 
 <h2>Sessions</h2>
-<p>Pull the temporary oauth_token back out of sessions. If the oauth_token is different from the one you sent them to Twitter with, abort the flow and don't continue with authorization.</p>
+<p>
+  Pull the temporary oauth_token back out of sessions. If the oauth_token is
+  different from the one you sent them to Twitter with, abort the flow and don't
+  continue with authorization.
+</p>
 
 <pre>
 $request_token = [];
@@ -37,7 +53,10 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 </pre>
 
 <h2>Get access_token</h2>
-<p>At this point we will use the temporary request token to get the long lived access_token that authorized to act as the user.</p>
+<p>
+  At this point we will use the temporary request token to get the long lived
+  access_token that authorized to act as the user.
+</p>
 
 <b>Request</b>
 <pre>
@@ -50,13 +69,23 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_
 </pre>
 
 <h2>Credentials storage</h2>
-<p>This is the important part where you save the credentials to your database of choice.</p>
+<p>
+  This is the important part where you save the credentials to your database of
+  choice.
+</p>
 
 <pre>
 $_SESSION['access_token'] = $access_token;
 </pre>
 
-<p>You now know the users identity and can start interacting with their Twitter account.</p>
-<p><a class="btn btn-primary" href="/profile.php">Next step: get your profile data</a></p>
+<p>
+  You now know the users identity and can start interacting with their Twitter
+  account.
+</p>
+<p>
+  <a class="btn btn-primary" href="/profile.php"
+    >Next step: get your profile data</a
+  >
+</p>
 
 {% endblock %}
