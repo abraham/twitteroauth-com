@@ -4,7 +4,9 @@
   "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
   "scripts": {
     "fix": "prettier --write .",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "postinstall": "composer install",
+    "start": "./scripts/dev.sh"
   },
   "repository": {
     "type": "git",
