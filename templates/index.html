@@ -1,63 +1,93 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="page-header">
-    <h1>TwitterOAuth</h1>
-    <p class="lead">The most popular PHP library for use with the Twitter OAuth REST API.</p>
+  <h1>TwitterOAuth</h1>
+  <p class="lead">
+    The most popular PHP library for use with the Twitter OAuth REST API.
+  </p>
 </div>
 
-
-<h2>Installation <a href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/index.html">
-  <span class="glyphicon glyphicon-edit small" aria-hidden="true" title="Edit this page on GitHub"></span></a></h2>
+<h2>
+  Installation
+  <a
+    href="https://github.com/abraham/twitteroauth-demo/blob/master/templates/index.html"
+  >
+    <span
+      class="glyphicon glyphicon-edit small"
+      aria-hidden="true"
+      title="Edit this page on GitHub"
+    ></span
+  ></a>
+</h2>
 
 <div class="container">
   <ul class="nav nav-tabs">
     <li class="active">
-      <a  href="#composer" data-toggle="tab">Composer</a>
+      <a href="#composer" data-toggle="tab">Composer</a>
     </li>
     <li>
       <a href="#manual" data-toggle="tab">Manual</a>
     </li>
   </ul>
 
-  <div class="tab-content ">
+  <div class="tab-content">
     <div class="tab-pane active" id="composer">
       <h4>With Composer</h4>
 
-      <p>The recommended and easy as pie method is <a href="https://getcomposer.org/">Composer</a>. Setup require in your projects composer.json file. Latest release: <a href="https://packagist.org/packages/abraham/twitteroauth"><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"></a></p>
+      <p>
+        The recommended and easy as pie method is
+        <a href="https://getcomposer.org/">Composer</a>. Setup require in your
+        projects composer.json file. Latest release:
+        <a href="https://packagist.org/packages/abraham/twitteroauth"
+          ><img
+            src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
+        /></a>
+      </p>
 
-<pre>
+      <pre>
 composer require abraham/twitteroauth
-</pre>
+</pre
+      >
 
-    <p>Import the TwitterOAuth class.</p>
-<pre>
+      <p>Import the TwitterOAuth class.</p>
+      <pre>
 require "vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-</pre>
+</pre
+      >
 
-    <p>Start making API requests.</p>
-<pre>
+      <p>Start making API requests.</p>
+      <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
-</pre>
+</pre
+      >
     </div>
     <div class="tab-pane" id="manual">
-        <h4>The old fashioned way</h4>
+      <h4>The old fashioned way</h4>
 
-        <p>Download the <a href="https://github.com/abraham/twitteroauth/releases">latest release</a> and unpack in a <code>twitteroauth</code> directory. Require the autoloader that will in turn require the TwitterOAuth classes automatically.</p>
-<pre>
+      <p>
+        Download the
+        <a href="https://github.com/abraham/twitteroauth/releases"
+          >latest release</a
+        >
+        and unpack in a <code>twitteroauth</code> directory. Require the
+        autoloader that will in turn require the TwitterOAuth classes
+        automatically.
+      </p>
+      <pre>
 require "twitteroauth/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-</pre>
+</pre
+      >
 
-        <p>Start making API requests.</p>
-<pre>
+      <p>Start making API requests.</p>
+      <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
-</pre>
+</pre
+      >
     </div>
   </div>
 </div>
@@ -65,39 +95,70 @@ $content = $connection->get("account/verify_credentials");
 <h2>Requirements</h2>
 
 <h4>PHP</h4>
-<p>Versions <a href="https://secure.php.net/supported-versions.php">listed</a> as "active support" or "security fixes" are supported.</p>
+<p>
+  Versions <a href="https://secure.php.net/supported-versions.php">listed</a> as
+  "active support" or "security fixes" are supported.
+</p>
 
 <h4>Dependencies</h4>
 <ul class="list-group">
-  <li class="list-group-item"><a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a></li>
-  <li class="list-group-item"><a href="http://php.net/manual/en/book.curl.php">cURL</a></li>
+  <li class="list-group-item">
+    <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>
+  </li>
+  <li class="list-group-item">
+    <a href="http://php.net/manual/en/book.curl.php">cURL</a>
+  </li>
 </ul>
 
-
 <div class="collapse" id="install-manual">
-    <h4>The old fashioned way</h4>
+  <h4>The old fashioned way</h4>
 
-    <p>Download the <a href="https://github.com/abraham/twitteroauth/releases">latest release</a> and unpack in a <code>twitteroauth</code> directory. Require the autoloader that will in turn require the TwitterOAuth classes automatically.</p>
-<pre>
+  <p>
+    Download the
+    <a href="https://github.com/abraham/twitteroauth/releases"
+      >latest release</a
+    >
+    and unpack in a <code>twitteroauth</code> directory. Require the autoloader
+    that will in turn require the TwitterOAuth classes automatically.
+  </p>
+  <pre>
 require "twitteroauth/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-</pre>
+</pre
+  >
 
-    <p>Start making API requests.</p>
-<pre>
+  <p>Start making API requests.</p>
+  <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
-</pre>
+</pre
+  >
 </div>
 
-
 <h2>Authorization flow</h2>
-<p>This site is a working example. <a href="/redirect.php"><img src="/images/sign-in-with-twitter-link.png" alt="Sign in with Twitter" title="Sign in with Twitter" /></a> to see the flow.</p>
-
+<p>
+  This site is a working example.
+  <a href="/redirect.php"
+    ><img
+      src="/images/sign-in-with-twitter-link.png"
+      alt="Sign in with Twitter"
+      title="Sign in with Twitter"
+  /></a>
+  to see the flow.
+</p>
 
 <h2>Usage</h2>
-<p>Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom function for every API method. Instead there are a couple of generic functions so that as Twitter adds features to the API you don't need to update the library. Here is an example of <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline">GET statuses/home_timeline</a>.</p>
+<p>
+  Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom
+  function for every API method. Instead there are a couple of generic functions
+  so that as Twitter adds features to the API you don't need to update the
+  library. Here is an example of
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline"
+    >GET statuses/home_timeline</a
+  >.
+</p>
 
 <b>HTTP</b>
 <pre>
@@ -109,31 +170,60 @@ GET https://api.twitter.com/1.1/statuses/home_timeline.json?count=25&exclude_rep
 $statuses = $connection->get("statuses/home_timeline", ["count" => 25, "exclude_replies" => true]);
 </pre>
 
-
 <h2>Methods</h2>
-<p>TwitterOAuth provides a couple of minimalist wrappers around Twitter's API methods.</p>
-
+<p>
+  TwitterOAuth provides a couple of minimalist wrappers around Twitter's API
+  methods.
+</p>
 
 <h3>OAuth</h3>
-<p>Only used when authorizing access to a users account. Includes API methods like <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token">POST oauth/request_token</a> and <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token">POST oauth/access_token</a>.</p>
+<p>
+  Only used when authorizing access to a users account. Includes API methods
+  like
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token"
+    >POST oauth/request_token</a
+  >
+  and
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token"
+    >POST oauth/access_token</a
+  >.
+</p>
 
 <b>Example</b>
 <pre>
 $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"]);
 </pre>
 
-
 <h3>URL</h3>
-<p>This is a special wrapper that doesn't hit the API. It builds the URL where users will authorize access to their account at. Only used for <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize">GET oauth/authorize</a> and <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize">GET oauth/authenticate</a>.</p>
+<p>
+  This is a special wrapper that doesn't hit the API. It builds the URL where
+  users will authorize access to their account at. Only used for
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    >GET oauth/authorize</a
+  >
+  and
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    >GET oauth/authenticate</a
+  >.
+</p>
 
 <b>Example</b>
 <pre>
 $url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"]);
 </pre>
 
-
 <h3>GET</h3>
-<p>API methods that are HTTP GET requests. E.g. <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html">GET search/tweets</a>.</p>
+<p>
+  API methods that are HTTP GET requests. E.g.
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html"
+    >GET search/tweets</a
+  >.
+</p>
 
 <b>HTTP</b>
 <pre>
@@ -145,9 +235,14 @@ GET https://api.twitter.com/1.1/search/tweets.json?q=twitterapi
 $statuses = $connection->get("search/tweets", ["q" => "twitterapi"]);
 </pre>
 
-
 <h3>POST</h3>
-<p>API methods that are HTTP POST requests. E.g. <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update">POST statuses/update</a>.</p>
+<p>
+  API methods that are HTTP POST requests. E.g.
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update"
+    >POST statuses/update</a
+  >.
+</p>
 
 <b>HTTP</b>
 <pre>
@@ -159,9 +254,14 @@ POST https://api.twitter.com/1.1/statuses/update.json?status=hello%20world
 $statues = $connection->post("statuses/update", ["status" => "hello world"]);
 </pre>
 
-
 <h3>Media</h3>
-<p>Upload images using <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html">POST media/upload</a>.</p>
+<p>
+  Upload images using
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html"
+    >POST media/upload</a
+  >.
+</p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
@@ -174,9 +274,14 @@ $parameters = [
 $result = $connection->post('statuses/update', $parameters);
 </pre>
 
-
 <h3>JSON data</h3>
-<p>Send JSON dat to <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event">POST direct_messages/events/new</a>.</p>
+<p>
+  Send JSON dat to
+  <a
+    href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event"
+    >POST direct_messages/events/new</a
+  >.
+</p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
@@ -196,10 +301,8 @@ $data = [
 $result = $connection->post('direct_messages/events/new', $data, true); // Note the true
 </pre>
 
-
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
-
 
 <h3>Proxy</h3>
 <p>HTTP proxy support can be enabled like this.</p>
@@ -212,7 +315,6 @@ $connection->setProxy([
     'CURLOPT_PROXYPORT' => 8080,
 ]);
 </pre>
-
 
 <h2>Error handling</h2>
 <p>After every request you should validate it was a success.</p>
@@ -227,28 +329,49 @@ if ($connection->getLastHttpCode() == 200) {
 </pre>
 
 <h3>Changing timeout settings</h3>
-<p>If you experience any timeout errors you can change the default timeout settings for cURL.</p>
+<p>
+  If you experience any timeout errors you can change the default timeout
+  settings for cURL.
+</p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $connection->setTimeouts(10, 15);
 </pre>
 
-<p>The first parameter corresponds to the timeout for the connect phase and the second to the maximum time the request is allowed to take.</p>
+<p>
+  The first parameter corresponds to the timeout for the connect phase and the
+  second to the maximum time the request is allowed to take.
+</p>
 
 <h2>Related projects</h2>
 
 <h3>&lt;twitter-status&gt; Web Component</h3>
-<p>If you are looking for an easy way to render tweets on websites, check out <a href="https://github.com/abraham/twitter-status">twitter-status</a>.</p>
+<p>
+  If you are looking for an easy way to render tweets on websites, check out
+  <a href="https://github.com/abraham/twitter-status">twitter-status</a>.
+</p>
 
-<twitter-status status='{"created_at":"Tue Mar 21 20:50:14 +0000 2006","id":20,"id_str":"20","full_text":"just setting up my twttr","truncated":false,"display_text_range":[0,24],"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":12,"id_str":"12","name":"jack","screen_name":"jack","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":4133490,"friends_count":3196,"listed_count":27270,"created_at":"Tue Mar 21 20:50:14 +0000 2006","favourites_count":19728,"utc_offset":-28800,"time_zone":"Pacific Time (US & Canada)","geo_enabled":true,"verified":true,"statuses_count":22897,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"EBEBEB","profile_background_image_url":"http://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_tile":false,"profile_image_url":"http://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/12/1483046077","profile_link_color":"990000","profile_sidebar_border_color":"DFDFDF","profile_sidebar_fill_color":"F3F3F3","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"regular"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":106177,"favorite_count":79867,"favorited":false,"retweeted":false,"lang":"en"}'></twitter-status>
+<twitter-status
+  status='{"created_at":"Tue Mar 21 20:50:14 +0000 2006","id":20,"id_str":"20","full_text":"just setting up my twttr","truncated":false,"display_text_range":[0,24],"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":12,"id_str":"12","name":"jack","screen_name":"jack","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":4133490,"friends_count":3196,"listed_count":27270,"created_at":"Tue Mar 21 20:50:14 +0000 2006","favourites_count":19728,"utc_offset":-28800,"time_zone":"Pacific Time (US & Canada)","geo_enabled":true,"verified":true,"statuses_count":22897,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"EBEBEB","profile_background_image_url":"http://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_tile":false,"profile_image_url":"http://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/12/1483046077","profile_link_color":"990000","profile_sidebar_border_color":"DFDFDF","profile_sidebar_fill_color":"F3F3F3","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"regular"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":106177,"favorite_count":79867,"favorited":false,"retweeted":false,"lang":"en"}'
+></twitter-status>
 
 <h3>&lt;twitter-user&gt; Web Component</h3>
-<p>If you are looking for an easy way to render user profiles on websites, check out <a href="https://github.com/abraham/twitter-user">twitter-user</a>.</p>
+<p>
+  If you are looking for an easy way to render user profiles on websites, check
+  out <a href="https://github.com/abraham/twitter-user">twitter-user</a>.
+</p>
 
-<twitter-user user='{"id":12,"id_str":"12","name":"jack","screen_name":"jack","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":4133490,"friends_count":3196,"listed_count":27270,"created_at":"Tue Mar 21 20:50:14 +0000 2006","favourites_count":19728,"utc_offset":-28800,"time_zone":"Pacific Time (US & Canada)","geo_enabled":true,"verified":true,"statuses_count":22897,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"EBEBEB","profile_background_image_url":"http://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_tile":false,"profile_image_url":"http://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/12/1483046077","profile_link_color":"990000","profile_sidebar_border_color":"DFDFDF","profile_sidebar_fill_color":"F3F3F3","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"regular"}'></twitter-user>
+<twitter-user
+  user='{"id":12,"id_str":"12","name":"jack","screen_name":"jack","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":4133490,"friends_count":3196,"listed_count":27270,"created_at":"Tue Mar 21 20:50:14 +0000 2006","favourites_count":19728,"utc_offset":-28800,"time_zone":"Pacific Time (US & Canada)","geo_enabled":true,"verified":true,"statuses_count":22897,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"EBEBEB","profile_background_image_url":"http://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme7/bg.gif","profile_background_tile":false,"profile_image_url":"http://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/839863609345794048/mkpdB9Tf_normal.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/12/1483046077","profile_link_color":"990000","profile_sidebar_border_color":"DFDFDF","profile_sidebar_fill_color":"F3F3F3","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"regular"}'
+></twitter-user>
 
 <h3>Test data in Ruby</h3>
-<p>Easily mock test Twitter data with <a href="https://github.com/stympy/faker/blob/master/doc/default/twitter.md">Faker::Twitter</a>.</p>
+<p>
+  Easily mock test Twitter data with
+  <a href="https://github.com/stympy/faker/blob/master/doc/default/twitter.md"
+    >Faker::Twitter</a
+  >.
+</p>
 
 {% endblock %}
