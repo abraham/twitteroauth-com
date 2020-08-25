@@ -9,17 +9,17 @@
   "stack": "heroku-18",
   "env": {
     "CONSUMER_KEY": {
-      "description": "Consumer Key from app registered at https://apps.twitter.com/.",
+      "description": "Consumer Key from app registered at https://developer.twitter.com/apps/.",
       "value": "",
       "required": true
     },
     "CONSUMER_SECRET": {
-      "description": "Consumer Secret from app registered at https://apps.twitter.com/.",
+      "description": "Consumer Secret from app registered at https://developer.twitter.com/apps/.",
       "value": "",
       "required": true
     },
     "OAUTH_CALLBACK": {
-      "description": "Callback URL from app registered at https://apps.twitter.com/. If site is hosted at https://example.herokuapp.com/ use https://example.herokuapp.com/callback.php.",
+      "description": "Callback URL from app registered at https://developer.twitter.com/apps/. If site is hosted at https://example.herokuapp.com/ use https://example.herokuapp.com/callback.php.",
       "value": "",
       "required": true
     },

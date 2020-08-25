@@ -13,5 +13,5 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
 if (!CONSUMER_KEY || !CONSUMER_SECRET || !OAUTH_CALLBACK) {
     exit('The CONSUMER_KEY, CONSUMER_SECRET, and OAUTH_CALLBACK environment variables must be set to use this demo.'
-         . 'You can register an app with Twitter at https://apps.twitter.com/.');
+         . 'You can register an app with Twitter at https://developer.twitter.com/apps/.');
 }
