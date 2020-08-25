@@ -1,5 +1,5 @@
 {
-  "name": "abraham/twitteroauth-demo",
+  "name": "abraham/twitteroauth-com",
   "type": "library",
   "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
   "keywords": [
@@ -11,7 +11,7 @@
     "social"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/abraham/twitteroauth-demo",
+  "homepage": "https://github.com/abraham/twitteroauth-com",
   "authors": [
     {
       "name": "Abraham Williams",
@@ -21,8 +21,8 @@
     }
   ],
   "support": {
-    "source": "https://github.com/abraham/twitteroauth-demo",
-    "issues": "https://github.com/abraham/twitteroauth-demo/issues"
+    "source": "https://github.com/abraham/twitteroauth-com",
+    "issues": "https://github.com/abraham/twitteroauth-com/issues"
   },
   "require": {
     "php": "~7.1",
