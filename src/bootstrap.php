@@ -4,7 +4,7 @@ session_start();
 define('DEBUG', getenv('DEBUG') === 'true');
 
 require 'http.php';
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 require 'templates.php';
 
 define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
