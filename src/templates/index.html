@@ -19,78 +19,33 @@
   ></a>
 </h2>
 
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#composer" data-toggle="tab">Composer</a>
-    </li>
-    <li>
-      <a href="#manual" data-toggle="tab">Manual</a>
-    </li>
-  </ul>
+<h4>With Composer</h4>
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="composer">
-      <h4>With Composer</h4>
+<p>
+  The recommended and easy as pie method is
+  <a href="https://getcomposer.org/">Composer</a>. Setup require in your
+  projects composer.json file. Latest release:
+  <a href="https://packagist.org/packages/abraham/twitteroauth"
+    ><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
+  /></a>
+</p>
 
-      <p>
-        The recommended and easy as pie method is
-        <a href="https://getcomposer.org/">Composer</a>. Setup require in your
-        projects composer.json file. Latest release:
-        <a href="https://packagist.org/packages/abraham/twitteroauth"
-          ><img
-            src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
-        /></a>
-      </p>
-
-      <pre>
+<pre>
 composer require abraham/twitteroauth
-</pre
-      >
+</pre>
 
-      <p>Import the TwitterOAuth class.</p>
-      <pre>
+<p>Import the TwitterOAuth class.</p>
+<pre>
 require "vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-</pre
-      >
+</pre>
 
-      <p>Start making API requests.</p>
-      <pre>
+<p>Start making API requests.</p>
+<pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $content = $connection->get("account/verify_credentials");
-</pre
-      >
-    </div>
-    <div class="tab-pane" id="manual">
-      <h4>The old fashioned way</h4>
-
-      <p>
-        Download the
-        <a href="https://github.com/abraham/twitteroauth/releases"
-          >latest release</a
-        >
-        and unpack in a <code>twitteroauth</code> directory. Require the
-        autoloader that will in turn require the TwitterOAuth classes
-        automatically.
-      </p>
-      <pre>
-require "twitteroauth/autoload.php";
-
-use Abraham\TwitterOAuth\TwitterOAuth;
-</pre
-      >
-
-      <p>Start making API requests.</p>
-      <pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$content = $connection->get("account/verify_credentials");
-</pre
-      >
-    </div>
-  </div>
-</div>
+</pre>
 
 <h2>Requirements</h2>
 
@@ -109,32 +64,6 @@ $content = $connection->get("account/verify_credentials");
     <a href="http://php.net/manual/en/book.curl.php">cURL</a>
   </li>
 </ul>
-
-<div class="collapse" id="install-manual">
-  <h4>The old fashioned way</h4>
-
-  <p>
-    Download the
-    <a href="https://github.com/abraham/twitteroauth/releases"
-      >latest release</a
-    >
-    and unpack in a <code>twitteroauth</code> directory. Require the autoloader
-    that will in turn require the TwitterOAuth classes automatically.
-  </p>
-  <pre>
-require "twitteroauth/autoload.php";
-
-use Abraham\TwitterOAuth\TwitterOAuth;
-</pre
-  >
-
-  <p>Start making API requests.</p>
-  <pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$content = $connection->get("account/verify_credentials");
-</pre
-  >
-</div>
 
 <h2>Authorization flow</h2>
 <p>
