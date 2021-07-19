@@ -27,6 +27,6 @@
   "require": {
     "php": "^8.0",
     "twig/twig": "^3.0",
-    "abraham/twitteroauth": "^2.0"
+    "abraham/twitteroauth": "^2.0 || ^3.0"
   }
 }
