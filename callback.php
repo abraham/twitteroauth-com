@@ -1,6 +1,6 @@
 <?php
 
-require 'bootstrap.php';
+require 'src/bootstrap.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 /* Get temporary credentials from session. */

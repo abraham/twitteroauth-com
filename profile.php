@@ -1,6 +1,6 @@
 <?php
 
-require 'bootstrap.php';
+require 'src/bootstrap.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 /* If access tokens are not available redirect to connect page. */
