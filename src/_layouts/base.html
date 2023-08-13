@@ -4,22 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {% if google_analytics_id %}
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', '{{ google_analytics_id }}');
-    </script>
-    {% endif %}
-
     <title>TwitterOAuth PHP Library for the Twitter REST API</title>
     <meta
       name="description"
@@ -128,19 +112,10 @@
                   src="https://img.shields.io/github/issues/abraham/twitteroauth.svg"
               /></a>
             </li>
-            <li>
-              <a
-                href="https://heroku.com/deploy?template=https://github.com/abraham/twitteroauth-com"
-                ><img
-                  src="https://www.herokucdn.com/deploy/button.png"
-                  alt="Deploy to Heroku"
-                  height="19px"
-              /></a>
-            </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="/redirect.php"
+              <a href="/redirect"
                 ><img
                   src="/images/sign-in-with-twitter-link.png"
                   alt="Sign in with Twitter"
@@ -153,7 +128,7 @@
       </div>
     </nav>
 
-    <div class="container">{% block content %}{% endblock %}</div>
+    <div class="container">{{ content }}</div>
     <!-- /.container -->
 
     <footer class="footer">

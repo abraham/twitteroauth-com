@@ -5,8 +5,7 @@
   "scripts": {
     "fix": "prettier --write .",
     "lint": "prettier --check .",
-    "postinstall": "composer install",
-    "start": "./scripts/dev.sh"
+    "start": "bundle exec jekyll serve --open-url --livereload"
   },
   "repository": {
     "type": "git",

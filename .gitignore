@@ -2,3 +2,4 @@ vendor
 cache
 .env
 node_modules
+_site
