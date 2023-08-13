@@ -201,9 +201,14 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
 </pre>
 
-<b>Response <span class="label label-info">Live</span></b>
+<b>Response <span class="label label-warning">Cached</span></b>
 <pre>
-
+  [
+    "oauth_token" => "62532xx-eWudHldSbIaelX7swmsiHImEL4KinwaGloxxxxxx",
+    "oauth_token_secret" => "2EEfA6BG5ly3sR3XjE0IBSnlQu4ZrUzPiYxxxxxx",
+    "user_id" => "6253282",
+    "screen_name" => "twitterapi"
+  ]
 </pre>
 
 <h2>Credentials storage</h2>

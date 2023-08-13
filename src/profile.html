@@ -50,7 +50,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
 </pre>
 
-<b>Response <span class="label label-info">Live</span></b>
+<b>Response <span class="label label-warning">Cached</span></b>
 <br />
 <button
   class="btn btn-default"
@@ -64,14 +64,12 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 </button>
 
 <pre class="collapse" id="profile-response">
-{{ dump(user) }}
+{{ site.data.jack }}
 </pre>
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
-<twitter-user user="{{ json_user }}"></twitter-user>
+<twitter-user user="{{ site.data.jack | jsonify }}"></twitter-user>
 
-{% if user.status %}
 <br />
-<twitter-status status="{{ json_status }}"></twitter-status>
-{% endif %}
+<twitter-status status="{{ site.data.20 | jsonify }}"></twitter-status>

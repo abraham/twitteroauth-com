@@ -52,9 +52,13 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
 </pre>
 
-<b>Response <span class="label label-info">Live</span></b>
+<b>Response <span class="label label-warning">Cached</span></b>
 <pre>
-{{ dump(request_token) }}
+  [
+    "oauth_token" => "zlgW3QAAAAAA2_NZAAABfxxxxxxk",
+    "oauth_token_secret" => "pBYEQzdbyMqIcyDzyn0X7LDxxxxxxxxx",
+    "oauth_callback_confirmed" => "true"
+  ]
 </pre>
 
 <h2>Sessions</h2>
@@ -80,9 +84,9 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
 </pre>
 
-<b>Response <span class="label label-info">Live</span></b>
+<b>Response <span class="label label-warning">Cached</span></b>
 <pre>
-{{ dump(url) }}
+  https://api.twitter.com/oauth/authorize?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hxxxxxx
 </pre>
 
 <h2>Authorize on twitter.com</h2>
