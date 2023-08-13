@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Code">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TwitterOAuth PHP Library for the Twitter REST API</title>
+    <meta
+      name="description"
+      content="The most popular PHP library for use with the Twitter OAuth REST API"
+    />
+    <meta name="author" content="Abraham Williams" />
+    <link rel="canonical" href="https://twitteroauth.com" />
+
+    <meta name="theme-color" content="#e7e7e7" />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="https://twitteroauth.com/images/twitter-logo-blue.png"
+    />
+
+    <meta
+      property="og:title"
+      content="TwitterOAuth PHP Library for the Twitter REST API"
+    />
+    <meta
+      property="og:image"
+      content="https://twitteroauth.com/images/twitter-logo-blue.png"
+    />
+    <meta property="og:url" content="https://twitteroauth.com" />
+    <meta
+      property="og:description"
+      content="The most popular PHP library for use with the Twitter OAuth REST API"
+    />
+
+    <meta itemprop="name" content="TwitterOAuth PHP Library" />
+    <meta
+      itemprop="description"
+      content="The most popular PHP library for use with the Twitter OAuth REST API"
+    />
+    <meta
+      itemprop="image"
+      content="https://twitteroauth.com/images/twitter-logo-blue.png"
+    />
+    <meta
+      itemprop="codeRepository"
+      content="https://github.com/abraham/twitteroauth"
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@abraham" />
+    <meta
+      name="twitter:title"
+      content="TwitterOAuth PHP Library for the Twitter REST API"
+    />
+    <meta
+      name="twitter:description"
+      content="The most popular PHP library for use with the Twitter OAuth REST API"
+    />
+    <meta
+      name="twitter:image"
+      content="https://twitteroauth.com/images/twitter-logo-blue.png"
+    />
+    <meta name="twitter:url" content="https://twitteroauth.com" />
+
+    <link rel="icon" href="https://abrah.am/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@3/dist/css/bootstrap.min.css"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">TwitterOAuth</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="https://developer.twitter.com/en/docs"
+                >Twitter API Docs</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/abraham/twitteroauth">Source</a>
+            </li>
+            <li>
+              <a href="https://github.com/abraham/twitteroauth-com/actions"
+                ><img
+                  src="https://github.com/abraham/twitteroauth/workflows/Test/badge.svg"
+              /></a>
+            </li>
+            <li>
+              <a href="https://github.com/abraham/twitteroauth/issues"
+                ><img
+                  src="https://img.shields.io/github/issues/abraham/twitteroauth.svg"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://heroku.com/deploy?template=https://github.com/abraham/twitteroauth-com"
+                ><img
+                  src="https://www.herokucdn.com/deploy/button.png"
+                  alt="Deploy to Heroku"
+                  height="19px"
+              /></a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a href="/redirect"
+                ><img
+                  src="/images/sign-in-with-twitter-link.png"
+                  alt="Sign in with Twitter"
+                  title="Sign in with Twitter"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container"><h1>
+  User details
+  <a
+    href="https://github.com/abraham/twitteroauth-com/blob/master/templates/profile.html"
+    ><span
+      class="glyphicon glyphicon-edit small"
+      aria-hidden="true"
+      title="Edit this page on GitHub"
+    ></span
+  ></a>
+</h1>
+<p>
+  The user has now authorized access to their Twitter account. The access_token
+  is specific to the user so anytime you want to act as the user create a
+  TwitterOAuth instance and start making requests.
+</p>
+
+<h2>Credential storage</h2>
+<p>
+  Pull the long-lived credentials out of storage. This example uses basic PHP
+  sessions but your implementation should use a database like
+  PostgreSQL/MongoDB/etc.
+</p>
+
+<pre>
+$access_token = $_SESSION['access_token'];
+</pre>
+
+<h2>Authenticated requests</h2>
+<p>Now we make a TwitterOAuth instance with the users access_token.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+</pre>
+
+<h2>Get account details</h2>
+<p>
+  At this point we will use the access token that is authorized to act as the
+  user, to get their account details.
+</p>
+
+<b>Request</b>
+<pre>
+$user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
+</pre>
+
+<b>Response <span class="label label-info">Live</span></b>
+<br />
+<button
+  class="btn btn-default"
+  type="button"
+  data-toggle="collapse"
+  data-target="#profile-response"
+  aria-expanded="false"
+  aria-controls="profile-response"
+>
+  View response
+</button>
+
+<pre class="collapse" id="profile-response">
+
+</pre>
+
+<p>You now have the authenticated user's Twitter account details.</p>
+
+<twitter-user user=""></twitter-user>
+
+
+</div>
+    <!-- /.container -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+          Built by <a href="https://abrah.am">Abraham Williams</a> for use with
+          the <a href="https://developer.twitter.com">Twitter API</a>.
+          TwitterOAuth is not affiliated Twitter, Inc.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/twitter-status@0.4/dist/twitter-status.min.js"></script>
+    <script src="https://unpkg.com/twitter-user@0/dist/twitter-user.min.js"></script>
+  </body>
+</html>

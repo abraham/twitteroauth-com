@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% block content %}
+---
+title: TwitterOAuth Redirect
+layout: base
+permalink: redirect
+---
+
 <h1>
   Starting authorization
   <a
@@ -79,10 +84,14 @@ $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token
 <pre>
 {{ dump(url) }}
 </pre>
+
+<h2>Authorize on twitter.com</h2>
 <p>
-  <a class="btn btn-primary" href="{{ url }}"
-    >Next step: authorize on twitter.com</a
-  >
+  Redirect the user to Twitter where they will authorize your application to access their account and be redirected back to the `OAUTH_CALLBACK` URL.
 </p>
 
-{% endblock %}
+<p>
+  <a class="btn btn-primary" href="/callback"
+    >Next step: callback</a
+  >
+</p>

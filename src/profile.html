@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% block content %}
+---
+title: TwitterOAuth Profile
+layout: base
+permalink: profile
+---
+
 <h1>
   User details
   <a
@@ -69,4 +74,4 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 {% if user.status %}
 <br />
 <twitter-status status="{{ json_status }}"></twitter-status>
-{% endif %} {% endblock %}
+{% endif %}

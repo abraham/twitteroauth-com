@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% block content %}
+---
+title: TwitterOAuth Callback
+layout: base
+permalink: callback
+---
+
 <h1>
   Finish authorization
   <a
@@ -83,9 +88,7 @@ $_SESSION['access_token'] = $access_token;
   account.
 </p>
 <p>
-  <a class="btn btn-primary" href="/profile.php"
+  <a class="btn btn-primary" href="/profile"
     >Next step: get your profile data</a
   >
 </p>
-
-{% endblock %}

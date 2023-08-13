@@ -1,0 +1,332 @@
+---
+title: TwitterOAuth PHP Library for the Twitter REST API
+layout: base
+---
+
+<div class="page-header">
+  <h1>TwitterOAuth</h1>
+  <p class="lead">
+    The most popular PHP library for use with the Twitter OAuth REST API.
+  </p>
+</div>
+
+<h2>
+  Installation
+  <a
+    href="https://github.com/abraham/twitteroauth-com/blob/master/templates/index.html"
+  >
+    <span
+      class="glyphicon glyphicon-edit small"
+      aria-hidden="true"
+      title="Edit this page on GitHub"
+    ></span
+  ></a>
+</h2>
+
+<h4>With Composer</h4>
+
+<p>
+  The recommended and easy as pie method is
+  <a href="https://getcomposer.org/">Composer</a>. Setup require in your
+  projects composer.json file. Latest release:
+  <a href="https://packagist.org/packages/abraham/twitteroauth"
+    ><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
+  /></a>
+</p>
+
+<pre>
+composer require abraham/twitteroauth
+</pre>
+
+<p>Import the TwitterOAuth class.</p>
+<pre>
+require "vendor/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+</pre>
+
+<p>Start making API requests.</p>
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$content = $connection->get("account/verify_credentials");
+</pre>
+
+<h2>Requirements</h2>
+
+<h4>PHP</h4>
+<p>
+  Versions <a href="https://secure.php.net/supported-versions.php">listed</a> as
+  "active support" or "security fixes" are supported.
+</p>
+
+<h4>Dependencies</h4>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>
+  </li>
+  <li class="list-group-item">
+    <a href="http://php.net/manual/en/book.curl.php">cURL</a>
+  </li>
+</ul>
+
+<h2>Authorization flow</h2>
+<p>
+  This site is a working example.
+  <a href="/redirect"
+    ><img
+      src="/images/sign-in-with-twitter-link.png"
+      alt="Sign in with Twitter"
+      title="Sign in with Twitter"
+  /></a>
+  to see the flow.
+</p>
+
+<h2>Usage</h2>
+<p>
+  Unlike many Twitter API libraries, TwitterOAuth doesn't provide a custom
+  function for every API method. Instead there are a couple of generic functions
+  so that as Twitter adds features to the API you don't need to update the
+  library. Here is an example of
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline"
+    >GET statuses/home_timeline</a
+  >.
+</p>
+
+<b>HTTP</b>
+<pre>
+GET https://api.twitter.com/1.1/statuses/home_timeline.json?count=25&exclude_replies=true
+</pre>
+
+<b>TwitterOAuth</b>
+<pre>
+$statuses = $connection->get("statuses/home_timeline", ["count" => 25, "exclude_replies" => true]);
+</pre>
+
+<h3>v2 API</h3>
+<p>
+  v2 API methods are supported by setting the API Version. E.g.
+  <a
+    href="https://developer.twitter.com/en/docs/twitter-api/users/lookup/api-reference/get-users"
+    >GET /2/users</a
+  >.
+</p>
+
+<b>HTTP</b>
+<pre>
+GET https://api.twitter.com/2/users?id=12
+</pre>
+
+<b>TwitterOAuth</b>
+<pre>
+$connection = new TwitterOAuth(...);
+$connection->setApiVersion('2');
+$response = $connection->get('users', ['ids' => 12]);
+</pre>
+
+<h2>Methods</h2>
+<p>
+  TwitterOAuth provides a couple of minimalist wrappers around Twitter's API
+  methods.
+</p>
+
+<h3>OAuth</h3>
+<p>
+  Only used when authorizing access to a users account. Includes API methods
+  like
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token"
+    >POST oauth/request_token</a
+  >
+  and
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token"
+    >POST oauth/access_token</a
+  >.
+</p>
+
+<b>Example</b>
+<pre>
+$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"]);
+</pre>
+
+<h3>URL</h3>
+<p>
+  This is a special wrapper that doesn't hit the API. It builds the URL where
+  users will authorize access to their account at. Only used for
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    >GET oauth/authorize</a
+  >
+  and
+  <a
+    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    >GET oauth/authenticate</a
+  >.
+</p>
+
+<b>Example</b>
+<pre>
+$url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"]);
+</pre>
+
+<h3>GET</h3>
+<p>
+  API methods that are HTTP GET requests. E.g.
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html"
+    >GET search/tweets</a
+  >.
+</p>
+
+<b>HTTP</b>
+<pre>
+GET https://api.twitter.com/1.1/search/tweets.json?q=twitterapi
+</pre>
+
+<b>TwitterOAuth</b>
+<pre>
+$statuses = $connection->get("search/tweets", ["q" => "twitterapi"]);
+</pre>
+
+<h3>POST</h3>
+<p>
+  API methods that are HTTP POST requests. E.g.
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update"
+    >POST statuses/update</a
+  >.
+</p>
+
+<b>HTTP</b>
+<pre>
+POST https://api.twitter.com/1.1/statuses/update.json?status=hello%20world
+</pre>
+
+<b>TwitterOAuth</b>
+<pre>
+$statues = $connection->post("statuses/update", ["status" => "hello world"]);
+</pre>
+
+<h3>Media</h3>
+<p>
+  Upload images using
+  <a
+    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html"
+    >POST media/upload</a
+  >.
+</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1.jpg']);
+$media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg']);
+$parameters = [
+    'status' => 'Meow Meow Meow',
+    'media_ids' => implode(',', [$media1->media_id_string, $media2->media_id_string])
+];
+$result = $connection->post('statuses/update', $parameters);
+</pre>
+
+<h3>JSON data</h3>
+<p>
+  Send JSON data to
+  <a
+    href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event"
+    >POST direct_messages/events/new</a
+  >.
+</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$data = [
+    'event' => [
+        'type' => 'message_create',
+        'message_create' => [
+            'target' => [
+                'recipient_id' => $userId
+            ],
+            'message_data' => [
+                'text' => 'Hello World!'
+            ]
+        ]
+    ]
+];
+$result = $connection->post('direct_messages/events/new', $data, true); // Note the true
+</pre>
+
+<h3>Streaming</h3>
+<p>Streaming is not currently supported.</p>
+
+<h3>Proxy</h3>
+<p>HTTP proxy support can be enabled like this.</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setProxy([
+    'CURLOPT_PROXY' => '127.0.0.0',
+    'CURLOPT_PROXYUSERPWD' => '',
+    'CURLOPT_PROXYPORT' => 8080,
+]);
+</pre>
+
+<h2>Error handling</h2>
+<p>After every request you should validate it was a success.</p>
+
+<pre>
+$statues = $connection->post("statuses/update", ["status" => "hello world"]);
+if ($connection->getLastHttpCode() == 200) {
+    // Tweet posted successfully
+} else {
+    // Handle error case
+}
+</pre>
+
+<h3>Changing timeout settings</h3>
+<p>
+  If you experience any timeout errors you can change the default timeout
+  settings for cURL.
+</p>
+
+<pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setTimeouts(10, 15);
+</pre>
+
+<p>
+  The first parameter corresponds to the timeout for the connect phase and the
+  second to the maximum time the request is allowed to take.
+</p>
+
+<h2>Related projects</h2>
+
+<h3>&lt;twitter-user&gt; Web Component</h3>
+<p>
+  If you are looking for an easy way to render user profiles on websites, check
+  out <a href="https://github.com/abraham/twitter-user">twitter-user</a>.
+</p>
+
+<twitter-user user="{{ json_user }}"></twitter-user>
+
+<h3>&lt;twitter-status&gt; Web Component</h3>
+<p>
+  If you are looking for an easy way to render tweets on websites, check out
+  <a href="https://github.com/abraham/twitter-status">twitter-status</a>.
+</p>
+
+<twitter-status status="{{ json_status }}"></twitter-status>
+
+<h3>TypeScript types</h3>
+<p>
+  Easy TypeScript types for Twitter API objects with
+  <a href="https://github.com/abraham/twitter-d">twitter-d.ts</a>.
+</p>
+
+<h3>Test data in Ruby</h3>
+<p>
+  Easily mock test Twitter data with
+  <a href="https://github.com/stympy/faker/blob/master/doc/default/twitter.md">
+    Faker::Twitter
+  </a>
+  .
+</p>
