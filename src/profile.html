@@ -69,7 +69,7 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
-<twitter-user user="{{ site.data.jack | jsonify }}"></twitter-user>
+<twitter-user user='{{ site.data.jack | jsonify | escape }}'></twitter-user>
 
 <br />
-<twitter-status status="{{ site.data.20 | jsonify }}"></twitter-status>
+<twitter-status status="{{ site.data.20 | jsonify | escape }}"></twitter-status>

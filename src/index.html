@@ -306,7 +306,7 @@ $connection->setTimeouts(10, 15);
   out <a href="https://github.com/abraham/twitter-user">twitter-user</a>.
 </p>
 
-<twitter-user user="{{ json_user }}"></twitter-user>
+<twitter-user user="{{ site.data.jack | jsonify | escape }}"></twitter-user>
 
 <h3>&lt;twitter-status&gt; Web Component</h3>
 <p>
@@ -314,7 +314,7 @@ $connection->setTimeouts(10, 15);
   <a href="https://github.com/abraham/twitter-status">twitter-status</a>.
 </p>
 
-<twitter-status status="{{ json_status }}"></twitter-status>
+<twitter-status status="{{ site.data.20 | jsonify | escape }}"></twitter-status>
 
 <h3>TypeScript types</h3>
 <p>
