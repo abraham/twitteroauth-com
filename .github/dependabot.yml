@@ -4,7 +4,7 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-  - package-ecosystem: composer
+  - package-ecosystem: bundler
     directory: '/'
     schedule:
       interval: weekly
