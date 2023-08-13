@@ -5,7 +5,6 @@
   "scripts": {
     "fix": "prettier --write .",
     "lint": "prettier --check .",
-    "postinstall": "composer install",
     "start": "./scripts/dev.sh"
   },
   "repository": {
