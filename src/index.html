@@ -214,18 +214,25 @@ $statues = $connection->post("statuses/update", ["status" => "hello world"]);
   <a
     href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html"
     >POST media/upload</a
-  >.
+  >. This uses the v1.1 API as there is no v2 equivalent.
+</p>
+<p>
+  Note: When creating the application in the Twitter Developer Portal, you must
+  enable Read and Write privileges under Settings > User authentication
+  settings, as otherwise Tweet creation will fail.
 </p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setApiVersion(1.1);
 $media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1.jpg']);
 $media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg']);
+$connection->setApiVersion(2);
 $parameters = [
-    'status' => 'Meow Meow Meow',
-    'media_ids' => implode(',', [$media1->media_id_string, $media2->media_id_string])
+    'text' => 'Meow Meow Meow',
+    'media' => ['media_ids' => [$media1->media_id_string, $media2->media_id_string]]
 ];
-$result = $connection->post('statuses/update', $parameters);
+$result = $connection->post('tweets', $parameters, true);
 </pre>
 
 <h3>JSON data</h3>
@@ -275,7 +282,7 @@ $connection->setProxy([
 
 <pre>
 $statues = $connection->post("statuses/update", ["status" => "hello world"]);
-if ($connection->getLastHttpCode() == 200) {
+if (in_array ($connection->getLastHttpCode(), [200, 201])) {
     // Tweet posted successfully
 } else {
     // Handle error case
