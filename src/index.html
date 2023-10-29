@@ -281,7 +281,7 @@ $connection->setProxy([
 
 <pre>
 $statues = $connection->post("statuses/update", ["status" => "hello world"]);
-if ($connection->getLastHttpCode() == 200) {
+if (in_array ($connection->getLastHttpCode(), [200, 201])) {
     // Tweet posted successfully
 } else {
     // Handle error case
