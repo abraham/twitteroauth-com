@@ -226,13 +226,13 @@ $statues = $connection->post("statuses/update", ["status" => "hello world"]);
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $connection->setApiVersion(1.1);
 $media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1.jpg']);
-$media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg']);
+$media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg'], ['chunkedUpload' => true]);
 $connection->setApiVersion(2);
 $parameters = [
     'text' => 'Meow Meow Meow',
     'media' => ['media_ids' => [$media1->media_id_string, $media2->media_id_string]]
 ];
-$result = $connection->post('tweets', $parameters, true);
+$result = $connection->post('tweets', $parameters, ['jsonPayload' => true]);
 </pre>
 
 <h3>JSON data</h3>
@@ -259,7 +259,7 @@ $data = [
         ]
     ]
 ];
-$result = $connection->post('direct_messages/events/new', $data, true); // Note the true
+$result = $connection->post('direct_messages/events/new', $data, ['jsonPayload' => true]);
 </pre>
 
 <h3>Streaming</h3>
