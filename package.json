@@ -27,6 +27,6 @@
   "homepage": "https://twitteroauth.com",
   "private": true,
   "devDependencies": {
-    "prettier": "3.4.2"
+    "prettier": "3.5.0"
   }
 }
