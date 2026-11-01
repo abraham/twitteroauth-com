@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "eleventy",
-    "fix": "prettier --write .",
-    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "start": "eleventy --serve"
   },
   "repository": {
