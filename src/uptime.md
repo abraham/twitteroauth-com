@@ -1,6 +1,6 @@
 ---
 title: Uptime
-permalink: uptime
+permalink: uptime.html
 ---
 
 ok
