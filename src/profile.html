@@ -47,7 +47,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 
 <b>Request</b>
 <pre>
-$user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extended', 'include_entities' => 'true']);
+$user = $connection->get('users/me', ['user.fields' => 'created_at,description,profile_image_url,protected,public_metrics,verified']);
 </pre>
 
 <b>Response <span class="label label-warning">Cached</span></b>
@@ -64,7 +64,7 @@ $user = $connection->get('account/verify_credentials', ['tweet_mode' => 'extende
 </button>
 
 <pre class="collapse" id="profile-response">
-{{ site.data.jack }}
+{{ site.data.me | jsonify }}
 </pre>
 
 <p>You now have the authenticated user's Twitter account details.</p>
