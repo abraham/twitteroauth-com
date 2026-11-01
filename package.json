@@ -2,10 +2,12 @@
   "name": "twitteroauth-com",
   "version": "0.0.0",
   "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
+  "type": "module",
   "scripts": {
+    "build": "eleventy",
     "fix": "prettier --write .",
     "lint": "prettier --check .",
-    "start": "bundle exec jekyll serve --open-url --livereload"
+    "start": "eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,11 @@
   },
   "homepage": "https://twitteroauth.com",
   "private": true,
+  "engines": {
+    "node": "26"
+  },
   "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
     "prettier": "3.9.10"
   }
 }

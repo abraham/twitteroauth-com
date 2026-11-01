@@ -8,8 +8,8 @@ Documentation site for the TwitterOAuth PHP library.
    ```console
    npm ci
    ```
-1. Install ruby gems
+1. Start the development server.
    ```console
-   bundle install
+   npm start
    ```
-1. Visit [http://localhost:4000/](http://localhost:4000/).
+1. Visit [http://localhost:8080/](http://localhost:8080/).
