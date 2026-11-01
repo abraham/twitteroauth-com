@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "12",
+    "name": "jack",
+    "username": "jack",
+    "created_at": "2006-03-21T20:50:14.000Z",
+    "description": "#bitcoin",
+    "profile_image_url": "https://pbs.twimg.com/profile_images/1661201415899951105/azNjKOSH_normal.jpg",
+    "protected": false,
+    "verified": true,
+    "public_metrics": {
+      "followers_count": 5033667,
+      "following_count": 4510,
+      "tweet_count": 27342,
+      "listed_count": 28022
+    }
+  }
+}

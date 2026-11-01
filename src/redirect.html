@@ -49,7 +49,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 <b>Request</b>
 <pre>
-$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
+$request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => OAUTH_CALLBACK]);
 </pre>
 
 <b>Response <span class="label label-warning">Cached</span></b>
@@ -81,12 +81,12 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 
 <b>Request</b>
 <pre>
-$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+$url = $connection->url('oauth/authorize', ['oauth_token' => $request_token['oauth_token']]);
 </pre>
 
 <b>Response <span class="label label-warning">Cached</span></b>
 <pre>
-https://api.twitter.com/oauth/authorize?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hxxxxxx
+https://api.x.com/oauth/authorize?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hxxxxxx
 </pre>
 
 <h2>Authorize on twitter.com</h2>

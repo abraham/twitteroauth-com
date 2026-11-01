@@ -48,7 +48,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 <p>Start making API requests.</p>
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$content = $connection->get("account/verify_credentials");
+$content = $connection->get("users/me");
 </pre>
 
 <h2>Requirements</h2>
@@ -87,42 +87,27 @@ $content = $connection->get("account/verify_credentials");
   function for every API method. Instead there are a couple of generic functions
   so that as Twitter adds features to the API you don't need to update the
   library. Here is an example of
-  <a
-    href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline"
-    >GET statuses/home_timeline</a
+  <a href="https://docs.x.com/x-api/users/get-timeline"
+    >GET /2/users/:id/timelines/reverse_chronological</a
   >.
 </p>
 
 <b>HTTP</b>
 <pre>
-GET https://api.twitter.com/1.1/statuses/home_timeline.json?count=25&exclude_replies=true
+GET https://api.x.com/2/users/12/timelines/reverse_chronological?max_results=25&exclude=replies
 </pre>
 
 <b>TwitterOAuth</b>
 <pre>
-$statuses = $connection->get("statuses/home_timeline", ["count" => 25, "exclude_replies" => true]);
+$posts = $connection->get("users/12/timelines/reverse_chronological", ["max_results" => 25, "exclude" => "replies"]);
 </pre>
 
-<h3>v2 API</h3>
+<h3>API versions</h3>
 <p>
-  v2 API methods are supported by setting the API Version. E.g.
-  <a
-    href="https://developer.twitter.com/en/docs/twitter-api/users/lookup/api-reference/get-users"
-    >GET /2/users</a
-  >.
+  TwitterOAuth v9 only supports the v2 API and paths are relative to
+  <code>https://api.x.com/2/</code>. Use TwitterOAuth v8 if you still need the
+  v1.1 API.
 </p>
-
-<b>HTTP</b>
-<pre>
-GET https://api.twitter.com/2/users?id=12
-</pre>
-
-<b>TwitterOAuth</b>
-<pre>
-$connection = new TwitterOAuth(...);
-$connection->setApiVersion('2');
-$response = $connection->get('users', ['ids' => 12]);
-</pre>
 
 <h2>Methods</h2>
 <p>
@@ -135,12 +120,12 @@ $response = $connection->get('users', ['ids' => 12]);
   Only used when authorizing access to a users account. Includes API methods
   like
   <a
-    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token"
+    href="https://docs.x.com/resources/fundamentals/authentication/api-reference"
     >POST oauth/request_token</a
   >
   and
   <a
-    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token"
+    href="https://docs.x.com/resources/fundamentals/authentication/api-reference"
     >POST oauth/access_token</a
   >.
 </p>
@@ -155,12 +140,12 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "n
   This is a special wrapper that doesn't hit the API. It builds the URL where
   users will authorize access to their account at. Only used for
   <a
-    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    href="https://docs.x.com/resources/fundamentals/authentication/api-reference#get-oauth-authorize"
     >GET oauth/authorize</a
   >
   and
   <a
-    href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize"
+    href="https://docs.x.com/resources/fundamentals/authentication/api-reference#get-oauth-authenticate"
     >GET oauth/authenticate</a
   >.
 </p>
@@ -173,48 +158,48 @@ $url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp
 <h3>GET</h3>
 <p>
   API methods that are HTTP GET requests. E.g.
-  <a
-    href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html"
-    >GET search/tweets</a
+  <a href="https://docs.x.com/x-api/posts/search-recent-posts"
+    >GET /2/tweets/search/recent</a
   >.
 </p>
 
 <b>HTTP</b>
 <pre>
-GET https://api.twitter.com/1.1/search/tweets.json?q=twitterapi
+GET https://api.x.com/2/tweets/search/recent?query=twitterapi
 </pre>
 
 <b>TwitterOAuth</b>
 <pre>
-$statuses = $connection->get("search/tweets", ["q" => "twitterapi"]);
+$posts = $connection->get("tweets/search/recent", ["query" => "twitterapi"]);
 </pre>
 
 <h3>POST</h3>
 <p>
   API methods that are HTTP POST requests. E.g.
-  <a
-    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update"
-    >POST statuses/update</a
-  >.
+  <a href="https://docs.x.com/x-api/posts/create-post">POST /2/tweets</a>.
+  Parameters are sent as JSON. Pass <code>['jsonPayload' => false]</code> as the
+  third argument to send them form encoded instead.
 </p>
 
 <b>HTTP</b>
 <pre>
-POST https://api.twitter.com/1.1/statuses/update.json?status=hello%20world
+POST https://api.x.com/2/tweets
+{"text": "hello world"}
 </pre>
 
 <b>TwitterOAuth</b>
 <pre>
-$statues = $connection->post("statuses/update", ["status" => "hello world"]);
+$post = $connection->post("tweets", ["text" => "hello world"]);
 </pre>
 
 <h3>Media</h3>
 <p>
   Upload images using
-  <a
-    href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html"
-    >POST media/upload</a
-  >. This uses the v1.1 API as there is no v2 equivalent.
+  <a href="https://docs.x.com/x-api/media/upload-media">POST /2/media/upload</a
+  >. Large files and videos can use
+  <a href="https://docs.x.com/x-api/media/initialize-media-upload"
+    >chunked uploads</a
+  >.
 </p>
 <p>
   Note: When creating the application in the Twitter Developer Portal, you must
@@ -224,42 +209,39 @@ $statues = $connection->post("statuses/update", ["status" => "hello world"]);
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$connection->setApiVersion(1.1);
-$media1 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten1.jpg']);
-$media2 = $connection->upload('media/upload', ['media' => '/path/to/file/kitten2.jpg'], ['chunkedUpload' => true]);
-$connection->setApiVersion(2);
+$media1 = $connection->upload('media/upload', [
+    'media' => '/path/to/file/kitten.jpg',
+    'media_category' => 'tweet_image',
+]);
+$media2 = $connection->upload('media/upload', [
+    'media' => '/path/to/file/kitten.mp4',
+    'media_type' => 'video/mp4',
+    'media_category' => 'tweet_video',
+], ['chunkedUpload' => true]);
 $parameters = [
     'text' => 'Meow Meow Meow',
-    'media' => ['media_ids' => [$media1->media_id_string, $media2->media_id_string]]
+    'media' => ['media_ids' => [$media1->data->id, $media2->data->id]]
 ];
-$result = $connection->post('tweets', $parameters, ['jsonPayload' => true]);
+$result = $connection->post('tweets', $parameters);
 </pre>
 
-<h3>JSON data</h3>
 <p>
-  Send JSON data to
+  Videos are processed after upload. Check progress with
+  <code>$connection->mediaStatus($media2->data->id)</code> before posting.
+</p>
+
+<h3>Direct Messages</h3>
+<p>
+  Send a message with
   <a
-    href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event"
-    >POST direct_messages/events/new</a
+    href="https://docs.x.com/x-api/direct-messages/create-dm-message-by-participant-id"
+    >POST /2/dm_conversations/with/:participant_id/messages</a
   >.
 </p>
 
 <pre>
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$data = [
-    'event' => [
-        'type' => 'message_create',
-        'message_create' => [
-            'target' => [
-                'recipient_id' => $userId
-            ],
-            'message_data' => [
-                'text' => 'Hello World!'
-            ]
-        ]
-    ]
-];
-$result = $connection->post('direct_messages/events/new', $data, ['jsonPayload' => true]);
+$result = $connection->post("dm_conversations/with/$userId/messages", ['text' => 'Hello World!']);
 </pre>
 
 <h3>Streaming</h3>
@@ -281,9 +263,9 @@ $connection->setProxy([
 <p>After every request you should validate it was a success.</p>
 
 <pre>
-$statues = $connection->post("statuses/update", ["status" => "hello world"]);
-if (in_array ($connection->getLastHttpCode(), [200, 201])) {
-    // Tweet posted successfully
+$post = $connection->post("tweets", ["text" => "hello world"]);
+if ($connection->getLastHttpCode() === 201) {
+    // Post created successfully
 } else {
     // Handle error case
 }
