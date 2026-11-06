@@ -32,7 +32,7 @@
     "node": "26"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
+    "@11ty/eleventy": "3.1.8",
     "prettier": "3.9.10"
   }
 }
