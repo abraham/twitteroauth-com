@@ -33,18 +33,30 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
 <h2>Sessions</h2>
 <p>
-  Pull the temporary oauth_token back out of sessions. If the oauth_token is
-  different from the one you sent them to Twitter with, abort the flow and don't
-  continue with authorization.
+  Pull the temporary oauth_token back out of sessions and clear it immediately
+  since it is single-use. If the oauth_token or oauth_verifier is missing, or if
+  the oauth_token does not match the one you sent to Twitter, abort the flow and
+  don't continue with authorization.
 </p>
 
 <pre>
-$request_token = [];
-$request_token['oauth_token'] = $_SESSION['oauth_token'];
-$request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
+$request_token = [
+    'oauth_token' => $_SESSION['oauth_token'] ?? null,
+    'oauth_token_secret' => $_SESSION['oauth_token_secret'] ?? null,
+];
+unset($_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 
-if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
+if (
+    !is_string($request_token['oauth_token']) ||
+    !is_string($request_token['oauth_token_secret']) ||
+    !isset($_GET['oauth_token'], $_GET['oauth_verifier']) ||
+    !is_string($_GET['oauth_token']) ||
+    !is_string($_GET['oauth_verifier']) ||
+    !hash_equals($request_token['oauth_token'], $_GET['oauth_token'])
+) {
     // Abort! Something is wrong.
+    http_response_code(400);
+    exit;
 }
 </pre>
 
@@ -63,7 +75,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 
 <b>Request</b>
 <pre>
-$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
+$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_GET['oauth_verifier']]);
 </pre>
 
 <b>Response <span class="badge text-bg-warning">Cached</span></b>
@@ -83,6 +95,7 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_
 </p>
 
 <pre>
+session_regenerate_id(true);
 $_SESSION['access_token'] = $access_token;
 </pre>
 
