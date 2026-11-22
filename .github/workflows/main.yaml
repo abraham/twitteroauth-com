@@ -1,5 +1,11 @@
 name: Main
-on: push
+on:
+  push:
+    branches: ['main']
+  pull_request: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 permissions:
   contents: read
 jobs:
@@ -17,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: package.json
+          cache: npm
       - run: npm ci
       - run: npm run format:check
 
@@ -30,6 +37,7 @@ jobs:
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: package.json
+          cache: npm
       - run: npm ci
       - run: npm run build
 
