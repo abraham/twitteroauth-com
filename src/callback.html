@@ -16,7 +16,7 @@ permalink: callback.html
 </h1>
 <p>
   The user should now have returned from Twitter having authorized access to
-  their account. A request_token is a short-lived one time use value so if it is
+  their account. A request_token is a short-lived one-time-use value so if it is
   invalid users will have to start the authorization flow over.
 </p>
 
@@ -64,8 +64,8 @@ if (
 
 <h2>Get access_token</h2>
 <p>
-  At this point we will use the temporary request token to get the long lived
-  access_token that authorized to act as the user.
+  At this point we will use the temporary request token to get the long-lived
+  access_token that is authorized to act as the user.
 </p>
 
 <p class="fw-semibold mb-1">Request</p>
@@ -91,7 +91,7 @@ if (
 $_SESSION['access_token'] = $access_token;</code></pre>
 
 <p>
-  You now know the users identity and can start interacting with their Twitter
+  You now know the user's identity and can start interacting with their Twitter
   account.
 </p>
 <p>
