@@ -1,7 +1,9 @@
 ---
 title: TwitterOAuth Profile
+description: Make authenticated Twitter API requests with TwitterOAuth to fetch user profile details.
 layout: base
 permalink: profile.html
+webComponents: true
 ---
 
 <h1>
@@ -26,16 +28,12 @@ permalink: profile.html
   PostgreSQL/MongoDB/etc.
 </p>
 
-<pre>
-$access_token = $_SESSION['access_token'];
-</pre>
+<pre><code>$access_token = $_SESSION['access_token'];</code></pre>
 
 <h2>Authenticated requests</h2>
 <p>Now we make a TwitterOAuth instance with the users access_token.</p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
-</pre>
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);</code></pre>
 
 <h2>Get account details</h2>
 <p>
@@ -43,15 +41,14 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
   user, to get their account details.
 </p>
 
-<b>Request</b>
-<pre>
-$user = $connection->get('users/me', ['user.fields' => 'created_at,description,profile_image_url,protected,public_metrics,verified']);
-</pre>
+<p class="fw-semibold mb-1">Request</p>
+<pre><code>$user = $connection->get('users/me', ['user.fields' => 'created_at,description,profile_image_url,protected,public_metrics,verified']);</code></pre>
 
-<b>Response <span class="badge text-bg-warning">Cached</span></b>
-<br />
+<p class="fw-semibold mb-2">
+  Response <span class="badge text-bg-warning">Cached</span>
+</p>
 <button
-  class="btn btn-outline-secondary mb-2"
+  class="btn btn-outline-secondary mb-3"
   type="button"
   data-bs-toggle="collapse"
   data-bs-target="#profile-response"
@@ -61,13 +58,13 @@ $user = $connection->get('users/me', ['user.fields' => 'created_at,description,p
   View response
 </button>
 
-<pre class="collapse" id="profile-response">
-{{ me | json: 2 }}
-</pre>
+<pre
+  class="collapse"
+  id="profile-response"
+><code>{{ me | json: 2 }}</code></pre>
 
 <p>You now have the authenticated user's Twitter account details.</p>
 
-<twitter-user user="{{ jack | json | escape }}"></twitter-user>
+<twitter-user class="mb-3" user="{{ jack | json | escape }}"></twitter-user>
 
-<br />
 <twitter-status status="{{ tweet | json | escape }}"></twitter-status>

@@ -1,6 +1,8 @@
 ---
 title: TwitterOAuth PHP Library for the Twitter REST API
+description: The most popular PHP library for use with the Twitter OAuth REST API
 layout: base
+webComponents: true
 ---
 
 <div class="page-header">
@@ -20,49 +22,45 @@ layout: base
   >
 </h2>
 
-<h4>With Composer</h4>
+<h3>With Composer</h3>
 
 <p>
   The recommended and easy as pie method is
   <a href="https://getcomposer.org/">Composer</a>. Setup require in your
   projects composer.json file. Latest release:
   <a href="https://packagist.org/packages/abraham/twitteroauth"
-    ><img src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
+    ><img
+      src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
+      alt="Latest stable version on Packagist"
   /></a>
 </p>
 
-<pre>
-composer require abraham/twitteroauth
-</pre>
+<pre><code>composer require abraham/twitteroauth</code></pre>
 
 <p>Import the TwitterOAuth class.</p>
-<pre>
-require "vendor/autoload.php";
+<pre><code>require "vendor/autoload.php";
 
-use Abraham\TwitterOAuth\TwitterOAuth;
-</pre>
+use Abraham\TwitterOAuth\TwitterOAuth;</code></pre>
 
 <p>Start making API requests.</p>
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$content = $connection->get("users/me");
-</pre>
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$content = $connection->get("users/me");</code></pre>
 
 <h2>Requirements</h2>
 
-<h4>PHP</h4>
+<h3>PHP</h3>
 <p>
-  Versions <a href="https://secure.php.net/supported-versions.php">listed</a> as
+  Versions <a href="https://www.php.net/supported-versions.php">listed</a> as
   "active support" or "security fixes" are supported.
 </p>
 
-<h4>Dependencies</h4>
-<ul class="list-group">
+<h3>Dependencies</h3>
+<ul class="list-group mb-3">
   <li class="list-group-item">
-    <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>
+    <a href="https://www.php.net/manual/en/book.openssl.php">OpenSSL</a>
   </li>
   <li class="list-group-item">
-    <a href="http://php.net/manual/en/book.curl.php">cURL</a>
+    <a href="https://www.php.net/manual/en/book.curl.php">cURL</a>
   </li>
 </ul>
 
@@ -89,15 +87,11 @@ $content = $connection->get("users/me");
   >.
 </p>
 
-<b>HTTP</b>
-<pre>
-GET https://api.x.com/2/users/12/timelines/reverse_chronological?max_results=25&exclude=replies
-</pre>
+<p class="fw-semibold mb-1">HTTP</p>
+<pre><code>GET https://api.x.com/2/users/12/timelines/reverse_chronological?max_results=25&amp;exclude=replies</code></pre>
 
-<b>TwitterOAuth</b>
-<pre>
-$posts = $connection->get("users/12/timelines/reverse_chronological", ["max_results" => 25, "exclude" => "replies"]);
-</pre>
+<p class="fw-semibold mb-1">TwitterOAuth</p>
+<pre><code>$posts = $connection->get("users/12/timelines/reverse_chronological", ["max_results" => 25, "exclude" => "replies"]);</code></pre>
 
 <h3>API versions</h3>
 <p>
@@ -127,10 +121,8 @@ $posts = $connection->get("users/12/timelines/reverse_chronological", ["max_resu
   >.
 </p>
 
-<b>Example</b>
-<pre>
-$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"]);
-</pre>
+<p class="fw-semibold mb-1">Example</p>
+<pre><code>$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "nMznkpFRTMCuNMsmALzel9FgPlmWQDWg"]);</code></pre>
 
 <h3>URL</h3>
 <p>
@@ -147,10 +139,8 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => "n
   >.
 </p>
 
-<b>Example</b>
-<pre>
-$url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"]);
-</pre>
+<p class="fw-semibold mb-1">Example</p>
+<pre><code>$url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp8RbjjOgNxIYVh7"]);</code></pre>
 
 <h3>GET</h3>
 <p>
@@ -160,15 +150,11 @@ $url = $connection->url("oauth/authorize", ["oauth_token" => "EaQLH34YD8pgKkUiSp
   >.
 </p>
 
-<b>HTTP</b>
-<pre>
-GET https://api.x.com/2/tweets/search/recent?query=twitterapi
-</pre>
+<p class="fw-semibold mb-1">HTTP</p>
+<pre><code>GET https://api.x.com/2/tweets/search/recent?query=twitterapi</code></pre>
 
-<b>TwitterOAuth</b>
-<pre>
-$posts = $connection->get("tweets/search/recent", ["query" => "twitterapi"]);
-</pre>
+<p class="fw-semibold mb-1">TwitterOAuth</p>
+<pre><code>$posts = $connection->get("tweets/search/recent", ["query" => "twitterapi"]);</code></pre>
 
 <h3>POST</h3>
 <p>
@@ -178,16 +164,12 @@ $posts = $connection->get("tweets/search/recent", ["query" => "twitterapi"]);
   third argument to send them form encoded instead.
 </p>
 
-<b>HTTP</b>
-<pre>
-POST https://api.x.com/2/tweets
-{"text": "hello world"}
-</pre>
+<p class="fw-semibold mb-1">HTTP</p>
+<pre><code>POST https://api.x.com/2/tweets
+{"text": "hello world"}</code></pre>
 
-<b>TwitterOAuth</b>
-<pre>
-$post = $connection->post("tweets", ["text" => "hello world"]);
-</pre>
+<p class="fw-semibold mb-1">TwitterOAuth</p>
+<pre><code>$post = $connection->post("tweets", ["text" => "hello world"]);</code></pre>
 
 <h3>Media</h3>
 <p>
@@ -200,12 +182,11 @@ $post = $connection->post("tweets", ["text" => "hello world"]);
 </p>
 <p>
   Note: When creating the application in the Twitter Developer Portal, you must
-  enable Read and Write privileges under Settings > User authentication
+  enable Read and Write privileges under Settings &gt; User authentication
   settings, as otherwise Tweet creation will fail.
 </p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $media1 = $connection->upload('media/upload', [
     'media' => '/path/to/file/kitten.jpg',
     'media_category' => 'tweet_image',
@@ -219,8 +200,7 @@ $parameters = [
     'text' => 'Meow Meow Meow',
     'media' => ['media_ids' => [$media1->data->id, $media2->data->id]]
 ];
-$result = $connection->post('tweets', $parameters);
-</pre>
+$result = $connection->post('tweets', $parameters);</code></pre>
 
 <p>
   Videos are processed after upload. Check progress with
@@ -236,10 +216,8 @@ $result = $connection->post('tweets', $parameters);
   >.
 </p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$result = $connection->post("dm_conversations/with/$userId/messages", ['text' => 'Hello World!']);
-</pre>
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$result = $connection->post("dm_conversations/with/$userId/messages", ['text' => 'Hello World!']);</code></pre>
 
 <h3>Streaming</h3>
 <p>Streaming is not currently supported.</p>
@@ -247,26 +225,22 @@ $result = $connection->post("dm_conversations/with/$userId/messages", ['text' =>
 <h3>Proxy</h3>
 <p>HTTP proxy support can be enabled like this.</p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 $connection->setProxy([
-    'CURLOPT_PROXY' => '127.0.0.0',
+    'CURLOPT_PROXY' => '127.0.0.1',
     'CURLOPT_PROXYUSERPWD' => '',
     'CURLOPT_PROXYPORT' => 8080,
-]);
-</pre>
+]);</code></pre>
 
 <h2>Error handling</h2>
 <p>After every request you should validate it was a success.</p>
 
-<pre>
-$post = $connection->post("tweets", ["text" => "hello world"]);
+<pre><code>$post = $connection->post("tweets", ["text" => "hello world"]);
 if ($connection->getLastHttpCode() === 201) {
     // Post created successfully
 } else {
     // Handle error case
-}
-</pre>
+}</code></pre>
 
 <h3>Changing timeout settings</h3>
 <p>
@@ -274,10 +248,8 @@ if ($connection->getLastHttpCode() === 201) {
   settings for cURL.
 </p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-$connection->setTimeouts(10, 15);
-</pre>
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+$connection->setTimeouts(10, 15);</code></pre>
 
 <p>
   The first parameter corresponds to the timeout for the connect phase and the
@@ -292,7 +264,7 @@ $connection->setTimeouts(10, 15);
   out <a href="https://github.com/abraham/twitter-user">twitter-user</a>.
 </p>
 
-<twitter-user user="{{ jack | json | escape }}"></twitter-user>
+<twitter-user class="mb-3" user="{{ jack | json | escape }}"></twitter-user>
 
 <h3>&lt;twitter-status&gt; Web Component</h3>
 <p>
@@ -300,7 +272,10 @@ $connection->setTimeouts(10, 15);
   <a href="https://github.com/abraham/twitter-status">twitter-status</a>.
 </p>
 
-<twitter-status status="{{ tweet | json | escape }}"></twitter-status>
+<twitter-status
+  class="mb-3"
+  status="{{ tweet | json | escape }}"
+></twitter-status>
 
 <h3>TypeScript types</h3>
 <p>

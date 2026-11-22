@@ -1,5 +1,6 @@
 ---
 title: TwitterOAuth Redirect
+description: Start the TwitterOAuth authorization flow by generating a request token and building the authorize URL.
 layout: base
 permalink: redirect.html
 ---
@@ -27,16 +28,14 @@ permalink: redirect.html
   application consumer_key and consumer_secret.
 </p>
 
-<pre>
-require 'vendor/autoload.php';
+<pre><code>require 'vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
 define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
 define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
-</pre>
+$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);</code></pre>
 
 <h2>Generating a request_token</h2>
 <p>
@@ -45,19 +44,17 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
   will soon be forgotten about.
 </p>
 
-<b>Request</b>
-<pre>
-$request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => OAUTH_CALLBACK]);
-</pre>
+<p class="fw-semibold mb-1">Request</p>
+<pre><code>$request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => OAUTH_CALLBACK]);</code></pre>
 
-<b>Response <span class="badge text-bg-warning">Cached</span></b>
-<pre>
-[
+<p class="fw-semibold mb-1">
+  Response <span class="badge text-bg-warning">Cached</span>
+</p>
+<pre><code>[
   "oauth_token" => "zlgW3QAAAAAA2_NZAAABfxxxxxxk",
   "oauth_token_secret" => "pBYEQzdbyMqIcyDzyn0X7LDxxxxxxxxx",
   "oauth_callback_confirmed" => "true"
-]
-</pre>
+]</code></pre>
 
 <h2>Sessions</h2>
 <p>
@@ -65,10 +62,8 @@ $request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => 
   session/storage implementation you want.
 </p>
 
-<pre>
-$_SESSION['oauth_token'] = $request_token['oauth_token'];
-$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
-</pre>
+<pre><code>$_SESSION['oauth_token'] = $request_token['oauth_token'];
+$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];</code></pre>
 
 <h2>Build authorize URL</h2>
 <p>
@@ -77,20 +72,19 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
   granted is displayed along with allow/deny buttons.
 </p>
 
-<b>Request</b>
-<pre>
-$url = $connection->url('oauth/authorize', ['oauth_token' => $request_token['oauth_token']]);
-</pre>
+<p class="fw-semibold mb-1">Request</p>
+<pre><code>$url = $connection->url('oauth/authorize', ['oauth_token' => $request_token['oauth_token']]);</code></pre>
 
-<b>Response <span class="badge text-bg-warning">Cached</span></b>
-<pre>
-https://api.x.com/oauth/authorize?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hxxxxxx
-</pre>
+<p class="fw-semibold mb-1">
+  Response <span class="badge text-bg-warning">Cached</span>
+</p>
+<pre><code>https://api.x.com/oauth/authorize?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hxxxxxx</code></pre>
 
 <h2>Authorize on twitter.com</h2>
 <p>
   Redirect the user to Twitter where they will authorize your application to
-  access their account and be redirected back to the `OAUTH_CALLBACK` URL.
+  access their account and be redirected back to the
+  <code>OAUTH_CALLBACK</code> URL.
 </p>
 
 <p>

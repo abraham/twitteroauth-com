@@ -1,43 +1,44 @@
+---
+title: TwitterOAuth PHP Library for the Twitter REST API
+description: The most popular PHP library for use with the Twitter OAuth REST API
+---
+
 <!doctype html>
-<html lang="en" itemscope itemtype="http://schema.org/Code">
+<html lang="en" itemscope itemtype="https://schema.org/SoftwareSourceCode">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TwitterOAuth PHP Library for the Twitter REST API</title>
-    <meta
-      name="description"
-      content="The most popular PHP library for use with the Twitter OAuth REST API"
-    />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
     <meta name="author" content="Abraham Williams" />
-    <link rel="canonical" href="https://twitteroauth.com" />
+    <link
+      rel="canonical"
+      href="https://twitteroauth.com{{ page.url | replace: '.html', '' }}"
+    />
 
     <meta name="theme-color" content="#e7e7e7" />
     <link
       rel="icon"
+      type="image/png"
       sizes="192x192"
-      href="https://twitteroauth.com/images/twitter-logo-blue.png"
+      href="/images/twitter-logo-blue.png"
     />
 
-    <meta
-      property="og:title"
-      content="TwitterOAuth PHP Library for the Twitter REST API"
-    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title }}" />
     <meta
       property="og:image"
       content="https://twitteroauth.com/images/twitter-logo-blue.png"
     />
-    <meta property="og:url" content="https://twitteroauth.com" />
     <meta
-      property="og:description"
-      content="The most popular PHP library for use with the Twitter OAuth REST API"
+      property="og:url"
+      content="https://twitteroauth.com{{ page.url | replace: '.html', '' }}"
     />
+    <meta property="og:description" content="{{ description }}" />
 
     <meta itemprop="name" content="TwitterOAuth PHP Library" />
-    <meta
-      itemprop="description"
-      content="The most popular PHP library for use with the Twitter OAuth REST API"
-    />
+    <meta itemprop="description" content="{{ description }}" />
     <meta
       itemprop="image"
       content="https://twitteroauth.com/images/twitter-logo-blue.png"
@@ -49,26 +50,25 @@
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@abraham" />
-    <meta
-      name="twitter:title"
-      content="TwitterOAuth PHP Library for the Twitter REST API"
-    />
-    <meta
-      name="twitter:description"
-      content="The most popular PHP library for use with the Twitter OAuth REST API"
-    />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
     <meta
       name="twitter:image"
       content="https://twitteroauth.com/images/twitter-logo-blue.png"
     />
-    <meta name="twitter:url" content="https://twitteroauth.com" />
+    <meta
+      name="twitter:url"
+      content="https://twitteroauth.com{{ page.url | replace: '.html', '' }}"
+    />
 
-    <link rel="icon" href="https://abrah.am/favicon.ico" />
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
   <body class="d-flex flex-column min-vh-100">
+    <a class="visually-hidden-focusable p-2" href="#main-content"
+      >Skip to main content</a
+    >
     <nav
       class="navbar navbar-expand-md bg-body-tertiary fixed-top border-bottom"
     >
@@ -130,21 +130,26 @@
       </div>
     </nav>
 
-    <main class="container py-4">{{ content }}</main>
+    <main id="main-content" class="container py-4">{{ content }}</main>
 
     <footer class="footer mt-auto py-3 bg-body-tertiary border-top">
       <div class="container">
         <p class="text-body-secondary mb-0">
           Built by <a href="https://abrah.am">Abraham Williams</a> for use with
           the <a href="https://developer.twitter.com">Twitter API</a>.
-          TwitterOAuth is not affiliated Twitter, Inc.
+          TwitterOAuth is not affiliated with Twitter, Inc.
         </p>
       </div>
     </footer>
 
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="/vendor/twitter-status/twitter-status.min.js"></script>
-    <script src="/vendor/twitter-user/twitter-user.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    {% if webComponents %}
+    <script
+      src="/vendor/webcomponentsjs/webcomponents-loader.js"
+      defer
+    ></script>
+    <script src="/vendor/twitter-status/twitter-status.min.js" defer></script>
+    <script src="/vendor/twitter-user/twitter-user.min.js" defer></script>
+    {% endif %}
   </body>
 </html>
