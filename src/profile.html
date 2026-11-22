@@ -8,12 +8,10 @@ permalink: profile.html
   User details
   <a
     href="https://github.com/abraham/twitteroauth-com/blob/main/src/profile.html"
-    ><span
-      class="glyphicon glyphicon-edit small"
-      aria-hidden="true"
-      title="Edit this page on GitHub"
-    ></span
-  ></a>
+    aria-label="Edit this page on GitHub"
+    title="Edit this page on GitHub"
+    >{% include "edit-icon.html" %}</a
+  >
 </h1>
 <p>
   The user has now authorized access to their Twitter account. The access_token
@@ -50,13 +48,13 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 $user = $connection->get('users/me', ['user.fields' => 'created_at,description,profile_image_url,protected,public_metrics,verified']);
 </pre>
 
-<b>Response <span class="label label-warning">Cached</span></b>
+<b>Response <span class="badge text-bg-warning">Cached</span></b>
 <br />
 <button
-  class="btn btn-default"
+  class="btn btn-outline-secondary mb-2"
   type="button"
-  data-toggle="collapse"
-  data-target="#profile-response"
+  data-bs-toggle="collapse"
+  data-bs-target="#profile-response"
   aria-expanded="false"
   aria-controls="profile-response"
 >

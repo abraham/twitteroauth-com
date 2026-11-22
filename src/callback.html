@@ -8,12 +8,10 @@ permalink: callback.html
   Finish authorization
   <a
     href="https://github.com/abraham/twitteroauth-com/blob/main/src/callback.html"
-    ><span
-      class="glyphicon glyphicon-edit small"
-      aria-hidden="true"
-      title="Edit this page on GitHub"
-    ></span
-  ></a>
+    aria-label="Edit this page on GitHub"
+    title="Edit this page on GitHub"
+    >{% include "edit-icon.html" %}</a
+  >
 </h1>
 <p>
   The user should now have returned from Twitter having authorized access to
@@ -68,7 +66,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
 $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
 </pre>
 
-<b>Response <span class="label label-warning">Cached</span></b>
+<b>Response <span class="badge text-bg-warning">Cached</span></b>
 <pre>
 [
   "oauth_token" => "62532xx-eWudHldSbIaelX7swmsiHImEL4KinwaGloxxxxxx",
