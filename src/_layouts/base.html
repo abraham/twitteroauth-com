@@ -68,49 +68,57 @@
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+  <body class="d-flex flex-column min-vh-100">
+    <nav
+      class="navbar navbar-expand-md bg-body-tertiary fixed-top border-bottom"
+    >
       <div class="container">
-        <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-            aria-expanded="false"
-            aria-controls="navbar"
-          >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">TwitterOAuth</a>
-        </div>
+        <a class="navbar-brand" href="/">TwitterOAuth</a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+          aria-expanded="false"
+          aria-controls="navbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="https://docs.x.com/x-api/introduction">X API Docs</a>
+          <ul class="navbar-nav me-auto align-items-md-center">
+            <li class="nav-item">
+              <a class="nav-link" href="https://docs.x.com/x-api/introduction"
+                >X API Docs</a
+              >
             </li>
-            <li>
-              <a href="https://github.com/abraham/twitteroauth">Source</a>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/abraham/twitteroauth"
+                >Source</a
+              >
             </li>
-            <li>
-              <a href="https://github.com/abraham/twitteroauth/actions"
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/abraham/twitteroauth/actions"
                 ><img
                   src="https://github.com/abraham/twitteroauth/actions/workflows/ci.yaml/badge.svg"
+                  alt="CI status"
               /></a>
             </li>
-            <li>
-              <a href="https://github.com/abraham/twitteroauth/issues"
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/abraham/twitteroauth/issues"
                 ><img
                   src="https://img.shields.io/github/issues/abraham/twitteroauth.svg"
+                  alt="GitHub issues"
               /></a>
             </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li>
-              <a href="/redirect"
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link py-md-0" href="/redirect"
                 ><img
                   src="/images/sign-in-with-twitter-link.png"
                   alt="Sign in with Twitter"
@@ -119,16 +127,14 @@
             </li>
           </ul>
         </div>
-        <!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">{{ content }}</div>
-    <!-- /.container -->
+    <main class="container py-4">{{ content }}</main>
 
-    <footer class="footer">
+    <footer class="footer mt-auto py-3 bg-body-tertiary border-top">
       <div class="container">
-        <p class="text-muted">
+        <p class="text-body-secondary mb-0">
           Built by <a href="https://abrah.am">Abraham Williams</a> for use with
           the <a href="https://developer.twitter.com">Twitter API</a>.
           TwitterOAuth is not affiliated Twitter, Inc.
@@ -136,8 +142,7 @@
       </div>
     </footer>
 
-    <script src="/vendor/jquery/jquery.slim.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/vendor/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="/vendor/twitter-status/twitter-status.min.js"></script>
     <script src="/vendor/twitter-user/twitter-user.min.js"></script>

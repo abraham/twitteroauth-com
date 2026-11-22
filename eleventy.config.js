@@ -6,11 +6,10 @@ export default function (eleventyConfig) {
       'vendor/bootstrap/css/bootstrap.min.css',
     'node_modules/bootstrap/dist/css/bootstrap.min.css.map':
       'vendor/bootstrap/css/bootstrap.min.css.map',
-    'node_modules/bootstrap/dist/fonts': 'vendor/bootstrap/fonts',
-    'node_modules/bootstrap/dist/js/bootstrap.min.js':
-      'vendor/bootstrap/js/bootstrap.min.js',
-    'node_modules/jquery/dist/jquery.slim.min.js':
-      'vendor/jquery/jquery.slim.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js':
+      'vendor/bootstrap/js/bootstrap.bundle.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map':
+      'vendor/bootstrap/js/bootstrap.bundle.min.js.map',
     'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js':
       'vendor/webcomponentsjs/webcomponents-loader.js',
     'node_modules/@webcomponents/webcomponentsjs/bundles':
