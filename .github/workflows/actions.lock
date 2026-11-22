@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/main.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/setup-node@v7.1.0'
-    '.github/workflows/pages.yml':
+    '.github/workflows/pages.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/deploy-pages@v5.0.1'
         - 'actions/setup-node@v7.1.0'

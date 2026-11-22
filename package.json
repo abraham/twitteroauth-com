@@ -1,7 +1,7 @@
 {
   "name": "twitteroauth-com",
   "version": "0.0.0",
-  "description": "The first PHP Library to support OAuth 1.0A for Twitter's REST API.",
+  "description": "Documentation site for the TwitterOAuth PHP library.",
   "type": "module",
   "scripts": {
     "build": "eleventy",
