@@ -1,5 +1,6 @@
 ---
 title: TwitterOAuth Callback
+description: Handle the TwitterOAuth OAuth callback and exchange the request token for an access token.
 layout: base
 permalink: callback.html
 ---
@@ -22,14 +23,12 @@ permalink: callback.html
 <h2>Bootstrapping</h2>
 <p>Set up as before but hold off on the TwitterOAuth instance.</p>
 
-<pre>
-require 'vendor/autoload.php';
+<pre><code>require 'vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
 define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
-define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
-</pre>
+define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));</code></pre>
 
 <h2>Sessions</h2>
 <p>
@@ -39,8 +38,7 @@ define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
   don't continue with authorization.
 </p>
 
-<pre>
-$request_token = [
+<pre><code>$request_token = [
     'oauth_token' => $_SESSION['oauth_token'] ?? null,
     'oauth_token_secret' => $_SESSION['oauth_token_secret'] ?? null,
 ];
@@ -57,15 +55,12 @@ if (
     // Abort! Something is wrong.
     http_response_code(400);
     exit;
-}
-</pre>
+}</code></pre>
 
 <h2>Finish bootstrapping</h2>
 <p>Now we make a TwitterOAuth instance with the temporary request token.</p>
 
-<pre>
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oauth_token'], $request_token['oauth_token_secret']);
-</pre>
+<pre><code>$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oauth_token'], $request_token['oauth_token_secret']);</code></pre>
 
 <h2>Get access_token</h2>
 <p>
@@ -73,20 +68,18 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oa
   access_token that authorized to act as the user.
 </p>
 
-<b>Request</b>
-<pre>
-$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_GET['oauth_verifier']]);
-</pre>
+<p class="fw-semibold mb-1">Request</p>
+<pre><code>$access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_GET['oauth_verifier']]);</code></pre>
 
-<b>Response <span class="badge text-bg-warning">Cached</span></b>
-<pre>
-[
+<p class="fw-semibold mb-1">
+  Response <span class="badge text-bg-warning">Cached</span>
+</p>
+<pre><code>[
   "oauth_token" => "62532xx-eWudHldSbIaelX7swmsiHImEL4KinwaGloxxxxxx",
   "oauth_token_secret" => "2EEfA6BG5ly3sR3XjE0IBSnlQu4ZrUzPiYxxxxxx",
   "user_id" => "6253282",
   "screen_name" => "twitterapi"
-]
-</pre>
+]</code></pre>
 
 <h2>Credentials storage</h2>
 <p>
@@ -94,10 +87,8 @@ $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_
   choice.
 </p>
 
-<pre>
-session_regenerate_id(true);
-$_SESSION['access_token'] = $access_token;
-</pre>
+<pre><code>session_regenerate_id(true);
+$_SESSION['access_token'] = $access_token;</code></pre>
 
 <p>
   You now know the users identity and can start interacting with their Twitter
