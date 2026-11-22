@@ -23,7 +23,7 @@ permalink: redirect.html
 
 <h2>Bootstrapping</h2>
 <p>
-  First we set need to autoload the TwitterOAuth class and the need Twitter
+  First we need to autoload the TwitterOAuth class and load the Twitter
   application details. We will also construct a TwitterOAuth instance with the
   application consumer_key and consumer_secret.
 </p>
@@ -39,7 +39,7 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);</code></pre>
 
 <h2>Generating a request_token</h2>
 <p>
-  Authorizing access to a users account through OAuth starts with getting a
+  Authorizing access to a user's account through OAuth starts with getting a
   temporary request_token. This request_token is only good for a few minutes and
   will soon be forgotten about.
 </p>

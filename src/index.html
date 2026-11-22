@@ -26,8 +26,8 @@ webComponents: true
 
 <p>
   The recommended and easy as pie method is
-  <a href="https://getcomposer.org/">Composer</a>. Setup require in your
-  projects composer.json file. Latest release:
+  <a href="https://getcomposer.org/">Composer</a>. Set up require in your
+  project's composer.json file. Latest release:
   <a href="https://packagist.org/packages/abraham/twitteroauth"
     ><img
       src="https://img.shields.io/packagist/v/abraham/twitteroauth.svg"
@@ -108,7 +108,7 @@ $content = $connection->get("users/me");</code></pre>
 
 <h3>OAuth</h3>
 <p>
-  Only used when authorizing access to a users account. Includes API methods
+  Only used when authorizing access to a user's account. Includes API methods
   like
   <a
     href="https://docs.x.com/resources/fundamentals/authentication/api-reference"
@@ -127,7 +127,7 @@ $content = $connection->get("users/me");</code></pre>
 <h3>URL</h3>
 <p>
   This is a special wrapper that doesn't hit the API. It builds the URL where
-  users will authorize access to their account at. Only used for
+  users will authorize access to their account. Only used for
   <a
     href="https://docs.x.com/resources/fundamentals/authentication/api-reference#get-oauth-authorize"
     >GET oauth/authorize</a
@@ -286,8 +286,7 @@ $connection->setTimeouts(10, 15);</code></pre>
 <h3>Test data in Ruby</h3>
 <p>
   Easily mock test Twitter data with
-  <a href="https://github.com/stympy/faker/blob/master/doc/default/twitter.md">
-    Faker::Twitter
-  </a>
-  .
+  <a href="https://github.com/stympy/faker/blob/master/doc/default/twitter.md"
+    >Faker::Twitter</a
+  >.
 </p>
