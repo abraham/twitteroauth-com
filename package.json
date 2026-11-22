@@ -38,7 +38,7 @@
   "dependencies": {
     "@webcomponents/webcomponentsjs": "2.8.1",
     "bootstrap": "5.3.9",
-    "twitter-status": "0.4.1",
+    "twitter-status": "0.7.0",
     "twitter-user": "0.3.0"
   }
 }
